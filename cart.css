@@ -1,0 +1,409 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  list-style-type: none;
+  text-decoration: none;
+  user-select: none;
+  color: var(--black-color);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+:root {
+  --main-color: #feca28;
+  /* --secondary-color: #504d4b; */
+  --secondary-color: #00063a;
+  --black-color: #000000;
+  --white-color: #ffffff;
+  --text-color: #b3a9a9;
+}
+/*?----------------------------------------------------------menu-----*/
+nav {
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: var(--secondary-color);
+}
+.container {
+  max-width: 1660px;
+  margin: 0 auto;
+}
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 3px 15px;
+  overflow: hidden;
+}
+.home > .fa-home {
+  color: var(--main-color);
+  font-size: 2rem;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.main-title {
+  font-size: 1.3rem;
+  color: var(--white-color);
+  font-weight: 900;
+}
+/* .user-info-items {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+} */
+.user-info-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+}
+.user-info-item span {
+  font-size: 0.9rem;
+}
+
+.user-info-item .fa {
+  margin: 10px;
+  color: var(--main-color);
+  font-size: 25px;
+  opacity: 1;
+}
+
+.user-info-items span {
+  display: none;
+  color: var(--white-color);
+}
+.user-info-item:hover {
+  opacity: 0.8;
+}
+
+.fa:hover {
+  opacity: 0.8;
+}
+
+/*?----------------------------------------------------------main-----*/
+main > img {
+  display: none;
+}
+main .empty-text {
+  display: none;
+}
+.container main {
+  min-height: 100vh;
+  padding: 60px 5px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.cart > h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin: 80px 2px 5px;
+  background-color: var(--main-color);
+  border-radius: 100% 100% 0 0;
+  border-radius: 10px;
+}
+table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+thead tr th {
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: 900;
+  padding: 8px;
+  background-color: var(--secondary-color);
+  color: var(--white-color);
+  border-radius: 10px;
+}
+table tr {
+  transition: 0.4s;
+}
+table tr:hover {
+  background-color: #ffbf0030;
+}
+table td {
+  border-bottom: 2px dashed var(--main-color);
+}
+
+tbody tr td:first-child > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 5px;
+}
+tbody tr td:first-child img {
+  width: 100%;
+  max-width: 100px;
+  aspect-ratio: 1.1/1;
+}
+tbody tr td:first-child h3 {
+  font-size: 0.9rem;
+}
+tbody tr td:nth-child(2) > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  gap: 15px;
+}
+tbody tr td:nth-child(2) .plus-minus {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+tbody tr td:nth-child(2) .minus {
+  width: 30px;
+  border-top: 1px solid var(--text-color);
+  border-left: 1px solid var(--text-color);
+  border-bottom: 1px solid var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px 0 0 8px;
+  transition: 0.4s;
+  cursor: pointer;
+  padding: 5px 0;
+}
+tbody tr td:nth-child(2) .minus:hover {
+  background-color: #ff0000;
+  color: var(--white-color);
+}
+tbody tr td:nth-child(2) .number {
+  width: 30px;
+  border-top: 1px solid var(--text-color);
+  border-bottom: 1px solid var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 0;
+}
+tbody tr td:nth-child(2) .plus {
+  width: 30px;
+  border-top: 1px solid var(--text-color);
+  border-right: 1px solid var(--text-color);
+  border-bottom: 1px solid var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 8px 8px 0;
+  transition: 0.4s;
+  cursor: pointer;
+  padding: 5px 0;
+}
+tbody tr td:nth-child(2) .plus:hover {
+  background-color: #075514;
+  color: var(--white-color);
+}
+tbody tr td:nth-child(2) .remove {
+  font-weight: 900;
+  cursor: pointer;
+}
+tbody tr td:nth-child(2) .remove span {
+  color: var(--text-color);
+  margin-left: 5px;
+  transition: 0.4s;
+}
+tbody tr td:nth-child(2) i.fa {
+  color: var(--text-color);
+  transition: 0.4s;
+}
+tbody tr td:nth-child(2) .remove:hover span {
+  color: var(--black-color);
+}
+tbody tr td:nth-child(2) .remove:hover .fa {
+  color: #ff0000;
+  animation: trash-shaker 0.5s alternate infinite linear;
+  transform: rotate(-30deg);
+  transform-origin: 50% 100%;
+}
+@keyframes trash-shaker {
+  to {
+    transform: rotate(30deg);
+  }
+}
+tbody tr td:last-child > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.total-price-container {
+  width: 80%;
+  border-radius: 10px;
+  margin: 0 auto;
+  font-weight: 900;
+  font-size: 1.1rem;
+  border: 3px solid var(--main-color);
+  padding: 15px;
+}
+
+.total-price-container > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 3px;
+}
+.total-price-container > button {
+  font-weight: 900;
+  font-size: 1.1rem;
+  background-color: var(--main-color);
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.total-price-container > button:hover {
+  background-color: var(--secondary-color);
+  color: var(--white-color);
+}
+
+body.empty {
+  background-color: var(--secondary-color);
+}
+main.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 !important;
+}
+
+main.empty > img {
+  display: block;
+  width: 200px;
+  aspect-ratio: 1.2/1;
+  position: relative;
+  animation: move-cart 2s infinite linear alternate;
+}
+@keyframes move-cart {
+  from {
+    right: -20%;
+  }
+  to {
+    right: 20%;
+  }
+}
+main.empty .empty-text {
+  display: block;
+  font-size: 1.5rem;
+  color: var(--white-color);
+  font-weight: 900;
+  text-align: center;
+}
+main.empty .empty-text span {
+  color: var(--main-color);
+}
+.successful-purchase {
+  position: fixed;
+  background-color: #08be27;
+  left: -300px;
+  top: 55px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+.successful-purchase span {
+  color: var(--white-color);
+  font-weight: 900;
+  font-size: 1.2rem;
+}
+.successful-purchase i.fa {
+  color: var(--white-color);
+  font-size: 35px;
+}
+.successful-purchase.confirm {
+  animation: move-left 1.5s linear alternate 2;
+}
+@keyframes move-left {
+  0% {
+    left: -300px;
+  }
+  40% {
+    left: 0;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .successful-purchase {
+    position: absolute;
+  }
+  .user-info-items span {
+    display: block;
+    font-weight: 600;
+  }
+  .cart {
+    width: 70%;
+  }
+  .cart > h1 {
+    font-size: 2.2rem;
+  }
+  thead tr th {
+    font-size: 1.1rem;
+  }
+  tbody tr td:first-child > div {
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+    gap: 0;
+  }
+  tbody tr td:first-child img {
+    max-width: 160px;
+  }
+  tbody tr td:first-child h3 {
+    font-size: 1.1rem;
+    margin-left: 25px;
+  }
+  tbody tr td:nth-child(2) .plus-minus {
+    font-size: 1.1rem;
+  }
+  tbody tr td:nth-child(2) .minus {
+    width: 35px;
+  }
+  tbody tr td:nth-child(2) .number {
+    width: 35px;
+  }
+  tbody tr td:nth-child(2) .plus {
+    width: 35px;
+  }
+  tbody tr td:nth-child(2) .remove span {
+    font-size: 1.1rem;
+  }
+  tbody tr td:nth-child(2) i.fa {
+    font-size: 1.1rem;
+  }
+
+  tbody tr td:last-child > div {
+    font-size: 1.4rem;
+  }
+  .total-price-container {
+    width: 28%;
+    position: absolute;
+    right: 5px;
+    top: 140px;
+  }
+  main.empty > img {
+    width: 300px;
+    animation-duration: 3s;
+  }
+  main.empty .empty-text {
+    font-size: 2rem;
+  }
+}
+.none {
+  display: none;
+}
