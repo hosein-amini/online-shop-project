@@ -371,3 +371,7 @@ function alertAddingPosition() {
 confirmComment.addEventListener("click", creatingComment);
 window.addEventListener("load", getFromLocalStorage);
 window.addEventListener("scroll", alertAddingPosition);
+
+
+import productId from "./spa.js";
+console.log(productId);

@@ -4,320 +4,312 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="online shop.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <script src="online shop.js" defer></script>
     <link rel="shortcut icon" href="images/logo3.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/online-shop.css" />
+    <script src="./js/online-shop.js" defer></script>
+    <script src="./js/spa.js" type="module"></script>
+    <script src="./js/router.js" type="module"></script>
     <title>ALL US Shop</title>
   </head>
   <body>
-    <nav>
-      <div class="container">
-        <div class="scroll-wrapper">
-          <div class="scroll-filler"></div>
-        </div>
-
-        <div class="menu">
-          <div class="hamburger-menu">
-            <div id="first"></div>
-            <div id="second"></div>
-            <div id="third"></div>
+    <div id="content">
+      <nav>
+        <div class="container">
+          <div class="scroll-wrapper">
+            <div class="scroll-filler"></div>
           </div>
-          <span class="title">All Us Shop</span>
-
-          <div class="logo">
-            <img src="images/logo.png" alt="online shop" />
-          </div>
-          <ul class="items">
-            <li>
-              <a href="#"> Collaboration </a>
-              <div class="underline"></div>
-            </li>
-            <li>
-              <a href="#"> Coming Soon </a>
-              <div class="underline"></div>
-            </li>
-            <li>
-              <a href="#"> Discount </a>
-              <div class="underline"></div>
-            </li>
-            <li>
-              <a href="#"> Contact </a>
-              <div class="underline"></div>
-            </li>
-          </ul>
-          <div class="search">
+          <div class="menu">
+            <div class="hamburger-menu">
+              <div id="first"></div>
+              <div id="second"></div>
+              <div id="third"></div>
+            </div>
+            <span class="title">All Us Shop</span>
+            <div class="logo">
+              <img src="images/logo.png" alt="online shop" />
+            </div>
+            <ul class="items">
+              <li>
+                <a href="#"> Collaboration </a>
+                <div class="underline"></div>
+              </li>
+              <li>
+                <a href="#"> Coming Soon </a>
+                <div class="underline"></div>
+              </li>
+              <li>
+                <a href="#"> Discount </a>
+                <div class="underline"></div>
+              </li>
+              <li>
+                <a href="#"> Contact </a>
+                <div class="underline"></div>
+              </li>
+            </ul>
+            <div class="search">
+              <input type="input" placeholder="search products ..." />
+              <img src="images/search.png" alt="search" />
+            </div>
+            <div class="user-info-items">
+              <a href="/cart" class=" spa-link user-info-item">
+                <i class="fa fa-cart-arrow-down"></i>
+                <span>Cart</span>
+              </a>
+              <a href="#" class="user-info-item">
+                <i class="fa fa-user"></i>
+                <span>Account</span>
+              </a>
+            </div>
             <input type="input" placeholder="search products ..." />
-            <img src="images/search.png" alt="search" />
           </div>
-          <div class="user-info-items">
-            <a href="cart.html" class="user-info-item">
-              <i class="fa fa-cart-arrow-down"></i>
-              <span>Cart</span>
-            </a>
-            <a href="#"class="user-info-item">
-              <i class="fa fa-user"></i>
-              <span>Account</span>
-            </a>
-          </div>
-
-          <input type="input" placeholder="search products ..." />
         </div>
+      </nav>
+      <div class="slider-wrapper">
+        <!-- <div class="slide slide3">
+          <div class="center-title">
+            <h1>Find whatever you want<br />Anytime , Anywhere</h1>
+            <a href="#">Shop Now</a>
+          </div>-->
       </div>
-    </nav>
-
-    <div class="slider-wrapper">
-      <!-- <div class="slide slide3">
-        <div class="center-title">
-          <h1>Find whatever you want<br />Anytime , Anywhere</h1>
-          <a href="#">Shop Now</a>
-        </div>-->
-    </div>
-
-    <div class="container">
-      <div class="categories">
-        <span>Categories</span>
-        <span class="plus">&#x2b;</span>
-        <span class="minus hidden">&#x2212;</span>
-      </div>
-      <ul class="categories-items">
-        <li class="all-item change-color">All</li>
-        <li class="item">Shirt</li>
-        <li class="item">Cap</li>
-        <li class="item">Trouser</li>
-        <li class="item">Short</li>
-        <li class="item">Shoe</li>
-        <li class="item">Sock</li>
-        <li class="item">Jacket</li>
-        <li class="item">Hoodie</li>
-      </ul>
-      <main class="main">
-        <section class="section">
-          <div class="products-container">
-            <!--! desktop product -->
-            <!-- <div class="product-container-padding">
-              <a class="product-container" href="#">
-                <div class="product-details-top">
+      <div class="container">
+        <div class="categories">
+          <span>Categories</span>
+          <span class="plus">&#x2b;</span>
+          <span class="minus hidden">&#x2212;</span>
+        </div>
+        <ul class="categories-items">
+          <li class="all-item change-color">All</li>
+          <li class="item">Shirt</li>
+          <li class="item">Cap</li>
+          <li class="item">Trouser</li>
+          <li class="item">Short</li>
+          <li class="item">Shoe</li>
+          <li class="item">Sock</li>
+          <li class="item">Jacket</li>
+          <li class="item">Hoodie</li>
+        </ul>
+        <main class="main">
+          <section class="section">
+            <div class="products-container">
+              <!--! desktop product -->
+              <!-- <div class="product-container-padding">
+                <a class="product-container" href="#">
+                  <div class="product-details-top">
+                    <div class="product-image-container">
+                      <img src="images/shirt-2.png" alt="product-image" />
+                      <div class="product-description">
+                        it's made by love and the best quality,don't lose it
+                      </div>
+                    </div>
+                    <div class="product-title">
+                      shoe designed by nike and adiddas shoe designed by
+                    </div>
+                  </div>
+                  <div class="product-details-bottom">
+                    <div class="product-price">$210</div>
+                    <div class="add-to-cart">Add to Cart</div>
+                  </div>
+                </a>
+              </div> -->
+              <!--! mobile product -->
+              <!-- <div class="product-container-padding">
+                <a class="product-container" href="/product-details">
                   <div class="product-image-container">
-                    <img src="images/shirt-2.png" alt="product-image" />
+                    <img src="images/hoodie-2.png" alt="product-image" />
+                  </div>
+                  <div class="product-details-bottom">
+                    <div class="product-title">shoe</div>
                     <div class="product-description">
                       it's made by love and the best quality,don't lose it
                     </div>
+                    <div id="bottom">
+                      <div class="product-price">$10</div>
+                      <div class="add-to-cart">Add to Cart</div>
+                    </div>
                   </div>
-                  <div class="product-title">
-                    shoe designed by nike and adiddas shoe designed by
-                  </div>
-                </div>
-                <div class="product-details-bottom">
-                  <div class="product-price">$210</div>
-                  <div class="add-to-cart">Add to Cart</div>
-                </div>
-              </a>
-            </div>-->
-            <!--! mobile product -->
-            <!-- <div class="product-container-padding">
-              <a class="product-container" href="#">
-                <div class="product-image-container">
-                  <img src="images/hoodie-2.png" alt="product-image" />
-                </div>
-
-                <div class="product-details-bottom">
-                  <div class="product-title">shoe</div>
-
-                  <div class="product-description">
-                    it's made by love and the best quality,don't lose it
-                  </div>
-
-                  <div id="bottom">
-                    <div class="product-price">$10</div>
-                    <div class="add-to-cart">Add to Cart</div>
-                  </div>
-                </div>
-              </a>
-            </div>-->
-          </div>
-          <div class="pagination">
-            <!-- <div class="page">1</div>-->
-          </div>
-        </section>
-        <section>
-          <div class="hot-products-container">
-            <h1>The Hottest products</h1>
-            <div class="hot-products">
-              <a href="#" class="hot-product">
-                <img src="images/cap-2.png" alt="hot-product-image" />
-                <h4>nike shoe ,the Best selling product</h4>
-              </a>
-              <a href="#" class="hot-product">
-                <img src="images/cap-1.png" alt="hot-product-image" />
-                <h4>nike shoe</h4>
-              </a>
-              <a href="#" class="hot-product">
-                <img src="images/shirt-2.png" alt="hot-product-image" />
-                <h4>nike shoe ,the Best selling product</h4>
-              </a>
-              <a href="#" class="hot-product">
-                <img src="images/jacket-1.png" alt="hot-product-image" />
-                <h4>nike shoe ,the Best selling product</h4>
-              </a>
-              <a href="#" class="hot-product">
-                <img src="images/hoodie-5.png" alt="hot-product-image" />
-                <h4>nike shoe ,the Best selling product</h4>
-              </a>
-              <a href="#" class="hot-product">
-                <img src="images/cap-2.png" alt="hot-product-image" />
-                <h4>nike shoe ,the Best selling product</h4>
-              </a>
-              <a href="#" class="hot-product">
-                <img src="images/cap-2.png" alt="hot-product-image" />
-                <h4>nike shoe ,the Best selling product</h4>
-              </a>
-              <a href="#" class="hot-product">
-                <img src="images/cap-2.png" alt="hot-product-image" />
-                <h4>nike shoe ,the Best selling product</h4>
-              </a>
-              <a href="#" class="hot-product">
-                <img src="images/cap-2.png" alt="hot-product-image" />
-                <h4>nike shoe ,the Best selling product</h4>
-              </a>
-              <a href="#" class="hot-product">
-                <img src="images/cap-2.png" alt="hot-product-image" />
-                <h4>nike shoe ,the Best selling product</h4>
-              </a>
-              <a href="#" class="hot-product">
-                <img src="images/cap-2.png" alt="hot-product-image" />
-                <h4>nike shoe ,the Best selling product</h4>
-              </a>
-              <a href="#" class="hot-product">
-                <img src="images/cap-2.png" alt="hot-product-image" />
-                <h4>nike shoe ,the Best selling product</h4>
-              </a>
+                </a>
+              </div> -->
             </div>
-          </div>
-          <div class="offer">
-            <div class="offer-image"></div>
-            <div class="offer-description">
-              <h4>LIMITED OFFER</h4>
-              <h1>55% off only on this friday and get special gift</h1>
-              <a href="#">Grab it now <span>&#8594;</span></a>
+            <div class="pagination">
+              <!-- <div class="page">1</div>-->
             </div>
-          </div>
-        </section>
-        <section>
-          <div class="email-container">
-            <h1>
-              Subscribe to our newsletter to get updates to our latest
-              collections
-            </h1>
-            <p>
-              Get 20% off on your first order just by subscribing to our
-              newsletter
-            </p>
-            <form>
-              <input
-                type="email"
-                id="email"
-                placeholder="Enter your email"
-                autocomplete="off"
-              />
-              <input type="submit" id="subscribe" value="Subscribe" />
-            </form>
-            <p>You will be able to unsubscribe at any time</p>
-            <p>Read our Privacy Policy <a href="#">Here</a></p>
-          </div>
-        </section>
-        <section>
-          <div class="brands-container">
-            <img src="images/brand-adidas.png" alt="adidas" />
-            <img src="images/brand-dior.png" alt="dior" />
-            <img src="images/brand-fendi.png" alt="fendi" />
-            <img src="images/brand-gucci.png" alt="gucci" />
-            <img src="images/brand-louis-vuitton.png" alt="louis-vuitton" />
-            <img src="images/brand-nike.png" alt="nike" />
-            <img src="images/brand-puma.png" alt="puma" />
-            <img src="images/brand-zara.png" alt="zara" />
-          </div>
-        </section>
-      </main>
-      <div class="alert-container">
-        <!-- <div class="successful-added">
-          <span>added successfully</span>
-          <i class="fa fa-angellist"></i>
-        </div> -->
-      </div>
-    </div>
-
-    <footer>
-      <div class="container">
-        <div class="about-container">
-          <div class="about">
-            <h2>All US Shop</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
-              error doloribus possimus facilis sequi, a quas quo incidunt
-              deserunt repellendus cumque, repudiandae ut necessitatibus
-              voluptatem placeat nobis at? Veritatis, ea.
-            </p>
-          </div>
-          <div class="shop-details">
-            <ul>
-              <li>Information</li>
-              <li>About Us</li>
-              <li>Privacy</li>
-              <li>Policy</li>
-            </ul>
-            <ul>
-              <li>Support</li>
-              <li>FAQs</li>
-              <li>Cookies Policy</li>
-              <li>Affiliates</li>
-            </ul>
-            <ul>
-              <li>Shop</li>
-              <li>All Collection</li>
-              <li>Winter Edition</li>
-              <li>Discount</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="copyright">
-          <p>
-            Copyright &#169; 2023 <span>All Us Shop </span> All right reserved
-          </p>
-          <div class="contact">
-            <a href="#"><i class="fa fa-telegram"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-google"></i></a>
-            <a href="#"><i class="fa fa-instagram"></i></a>
-          </div>
+          </section>
+          <section>
+            <div class="hot-products-container">
+              <h1>The Hottest products</h1>
+              <div class="hot-products">
+                <a href="#" class="hot-product">
+                  <img src="images/cap-2.png" alt="hot-product-image" />
+                  <h4>nike shoe ,the Best selling product</h4>
+                </a>
+                <a href="#" class="hot-product">
+                  <img src="images/cap-1.png" alt="hot-product-image" />
+                  <h4>nike shoe</h4>
+                </a>
+                <a href="#" class="hot-product">
+                  <img src="images/shirt-2.png" alt="hot-product-image" />
+                  <h4>nike shoe ,the Best selling product</h4>
+                </a>
+                <a href="#" class="hot-product">
+                  <img src="images/jacket-1.png" alt="hot-product-image" />
+                  <h4>nike shoe ,the Best selling product</h4>
+                </a>
+                <a href="#" class="hot-product">
+                  <img src="images/hoodie-5.png" alt="hot-product-image" />
+                  <h4>nike shoe ,the Best selling product</h4>
+                </a>
+                <a href="#" class="hot-product">
+                  <img src="images/cap-2.png" alt="hot-product-image" />
+                  <h4>nike shoe ,the Best selling product</h4>
+                </a>
+                <a href="#" class="hot-product">
+                  <img src="images/cap-2.png" alt="hot-product-image" />
+                  <h4>nike shoe ,the Best selling product</h4>
+                </a>
+                <a href="#" class="hot-product">
+                  <img src="images/cap-2.png" alt="hot-product-image" />
+                  <h4>nike shoe ,the Best selling product</h4>
+                </a>
+                <a href="#" class="hot-product">
+                  <img src="images/cap-2.png" alt="hot-product-image" />
+                  <h4>nike shoe ,the Best selling product</h4>
+                </a>
+                <a href="#" class="hot-product">
+                  <img src="images/cap-2.png" alt="hot-product-image" />
+                  <h4>nike shoe ,the Best selling product</h4>
+                </a>
+                <a href="#" class="hot-product">
+                  <img src="images/cap-2.png" alt="hot-product-image" />
+                  <h4>nike shoe ,the Best selling product</h4>
+                </a>
+                <a href="#" class="hot-product">
+                  <img src="images/cap-2.png" alt="hot-product-image" />
+                  <h4>nike shoe ,the Best selling product</h4>
+                </a>
+              </div>
+            </div>
+            <div class="offer">
+              <div class="offer-image"></div>
+              <div class="offer-description">
+                <h4>LIMITED OFFER</h4>
+                <h1>55% off only on this friday and get special gift</h1>
+                <a href="#">Grab it now <span>&#8594;</span></a>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div class="email-container">
+              <h1>
+                Subscribe to our newsletter to get updates to our latest
+                collections
+              </h1>
+              <p>
+                Get 20% off on your first order just by subscribing to our
+                newsletter
+              </p>
+              <form>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Enter your email"
+                  autocomplete="off"
+                />
+                <input type="submit" id="subscribe" value="Subscribe" />
+              </form>
+              <p>You will be able to unsubscribe at any time</p>
+              <p>Read our Privacy Policy <a href="#">Here</a></p>
+            </div>
+          </section>
+          <section>
+            <div class="brands-container">
+              <img src="images/brand-adidas.png" alt="adidas" />
+              <img src="images/brand-dior.png" alt="dior" />
+              <img src="images/brand-fendi.png" alt="fendi" />
+              <img src="images/brand-gucci.png" alt="gucci" />
+              <img src="images/brand-louis-vuitton.png" alt="louis-vuitton" />
+              <img src="images/brand-nike.png" alt="nike" />
+              <img src="images/brand-puma.png" alt="puma" />
+              <img src="images/brand-zara.png" alt="zara" />
+            </div>
+          </section>
+        </main>
+        <div class="alert-container">
+          <!-- <div class="successful-added">
+            <span>added successfully</span>
+            <i class="fa fa-angellist"></i>
+          </div> -->
         </div>
       </div>
-    </footer>
-
-    <div class="mobile-menu-exit"></div>
-    <div class="mobile-menu">
-      <ul class="mobile-menu-items">
-        <div class="title">All Us Shop</div>
-
-        <li>
-          <a href="#"> Collaboration </a>
-        </li>
-        <li>
-          <a href="#"> Coming Soon </a>
-        </li>
-        <li>
-          <a href="#"> Discount </a>
-        </li>
-        <li>
-          <a href="#"> Contact </a>
-        </li>
-      </ul>
+      <footer>
+        <div class="container">
+          <div class="about-container">
+            <div class="about">
+              <h2>All US Shop</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
+                error doloribus possimus facilis sequi, a quas quo incidunt
+                deserunt repellendus cumque, repudiandae ut necessitatibus
+                voluptatem placeat nobis at? Veritatis, ea.
+              </p>
+            </div>
+            <div class="shop-details">
+              <ul>
+                <li>Information</li>
+                <li>About Us</li>
+                <li>Privacy</li>
+                <li>Policy</li>
+              </ul>
+              <ul>
+                <li>Support</li>
+                <li>FAQs</li>
+                <li>Cookies Policy</li>
+                <li>Affiliates</li>
+              </ul>
+              <ul>
+                <li>Shop</li>
+                <li>All Collection</li>
+                <li>Winter Edition</li>
+                <li>Discount</li>
+              </ul>
+            </div>
+          </div>
+          <div class="copyright">
+            <p>
+              Copyright &#169; 2023 <span>All Us Shop </span> All right reserved
+            </p>
+            <div class="contact">
+              <a href="#"><i class="fa fa-telegram"></i></a>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+              <a href="#"><i class="fa fa-facebook"></i></a>
+              <a href="#"><i class="fa fa-linkedin"></i></a>
+              <a href="#"><i class="fa fa-google"></i></a>
+              <a href="#"><i class="fa fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <div class="mobile-menu-exit"></div>
+      <div class="mobile-menu">
+        <ul class="mobile-menu-items">
+          <div class="title">All Us Shop</div>
+          <li>
+            <a href="#"> Collaboration </a>
+          </li>
+          <li>
+            <a href="#"> Coming Soon </a>
+          </li>
+          <li>
+            <a href="#"> Discount </a>
+          </li>
+          <li>
+            <a href="#"> Contact </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </body>
 </html>
