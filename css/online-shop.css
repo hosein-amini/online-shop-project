@@ -585,7 +585,7 @@ main.top-to-bottom {
 .offer-image {
   width: 50%;
   height: 300px;
-  background-image: url(images/5.jpg);
+  background-image: url(../images/5.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

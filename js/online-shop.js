@@ -378,7 +378,7 @@ function changePage(pageNumber, products) {
   let selectedFinalFilteredProducts = products.slice(startProduct, endProduct);
   generatingProducts(selectedFinalFilteredProducts);
 }
-function generatingMobileProducts(products) {
+const generatingMobileProducts = (products) => {
   let productsContainer = $.querySelector(".products-container");
   let productsContainerFragment = new DocumentFragment();
   productsContainer.innerHTML = "";
@@ -387,28 +387,28 @@ function generatingMobileProducts(products) {
     outerProductContainer.classList.add("product-container-padding");
     outerProductContainer.insertAdjacentHTML(
       "beforeend",
-      '<a class="product-container" href="./product details.html?id=' +
-        product.id +
-        '"><div class="product-image-container"><img src="' +
-        product.image +
-        '" alt="' +
-        product.title +
-        '"></div><div class="product-details-bottom"><div class="product-title">' +
-        product.title +
-        '</div><div class="product-description">' +
-        product.description +
-        '</div><div id="bottom"><div class="product-price">$' +
-        product.price +
-        '</div><div class="add-to-cart"onclick="addingToCart(' +
-        product.id +
-        ',event)">Add to Cart</div></div></div></a>'
+      `<a class="product-container" href="/product-details?id=${product.id}">
+                  <div class="product-image-container">
+                    <img src="${product.image}" alt="${product.title}" />
+                  </div>
+                  <div class="product-details-bottom">
+                    <div class="product-title">${product.title}</div>
+                    <div class="product-description">
+                      ${product.description}
+                    </div>
+                    <div id="bottom">
+                      <div class="product-price">$${product.price}</div>
+                      <div class="add-to-cart" onclick="addingToCart(${product.id},event)">Add to Cart</div>
+                    </div>
+                  </div>
+              </a>`
     );
 
     productsContainerFragment.appendChild(outerProductContainer);
   });
   productsContainer.append(productsContainerFragment);
-}
-function generatingDesktopProducts(products) {
+};
+const generatingDesktopProducts = (products) => {
   let productsContainer = $.querySelector(".products-container");
   let productsContainerFragment = new DocumentFragment();
   productsContainer.innerHTML = "";
@@ -417,26 +417,24 @@ function generatingDesktopProducts(products) {
     outerProductContainer.classList.add("product-container-padding");
     outerProductContainer.insertAdjacentHTML(
       "beforeend",
-      '<a class="product-container" href="./product details.html?id=' +
-        product.id +
-        '"target="_blank"><div class="product-details-top"><div class="product-image-container"><img src="' +
-        product.image +
-        '" alt="' +
-        product.title +
-        '" /><div class="product-description">' +
-        product.description +
-        '</div></div><div class="product-title">' +
-        product.title +
-        '</div></div><div class="product-details-bottom"><div class="product-price">$' +
-        product.price +
-        '</div><div class="add-to-cart" onclick="addingToCart(' +
-        product.id +
-        ',event)">Add to Cart</div></div></a>'
+      `<a class="product-container" href="/product-details?id=${product.id}">
+                  <div class="product-details-top">
+                    <div class="product-image-container">
+                      <img src="${product.image}" alt="${product.title}" />
+                      <div class="product-description">${product.description}</div>
+                    </div>
+                    <div class="product-title">${product.title}</div>
+                  </div>
+                  <div class="product-details-bottom">
+                    <div class="product-price">$${product.price}</div>
+                    <div class="add-to-cart" onclick="addingToCart(${product.id},event)">Add to Cart</div>
+                  </div>
+                </a>`
     );
     productsContainerFragment.appendChild(outerProductContainer);
   });
   productsContainer.append(productsContainerFragment);
-}
+};
 function generatingProducts(products) {
   if (isMobileSizeProduct) {
     generatingMobileProducts(products);
