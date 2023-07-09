@@ -347,7 +347,7 @@ function addingToCart(productId, event) {
     productsInCart.push(addedProduct);
   }
   localStorage.setItem("localProductsInCart", JSON.stringify(productsInCart));
-  alertAdding()
+  alertAdding();
 }
 function generatingPageButtons(products) {
   let pages = Math.ceil(products.length / pageItems);
@@ -378,7 +378,7 @@ function changePage(pageNumber, products) {
   let selectedFinalFilteredProducts = products.slice(startProduct, endProduct);
   generatingProducts(selectedFinalFilteredProducts);
 }
-function generatingMobileProducts(products) {
+const generatingMobileProducts = (products) => {
   let productsContainer = $.querySelector(".products-container");
   let productsContainerFragment = new DocumentFragment();
   productsContainer.innerHTML = "";
@@ -387,7 +387,7 @@ function generatingMobileProducts(products) {
     outerProductContainer.classList.add("product-container-padding");
     outerProductContainer.insertAdjacentHTML(
       "beforeend",
-      '<a class="product-container" href="./product details.html?id=' +
+      '<a class="product-container" href="./product-details.html?id=' +
         product.id +
         '"><div class="product-image-container"><img src="' +
         product.image +
@@ -407,8 +407,8 @@ function generatingMobileProducts(products) {
     productsContainerFragment.appendChild(outerProductContainer);
   });
   productsContainer.append(productsContainerFragment);
-}
-function generatingDesktopProducts(products) {
+};
+const generatingDesktopProducts = (products) => {
   let productsContainer = $.querySelector(".products-container");
   let productsContainerFragment = new DocumentFragment();
   productsContainer.innerHTML = "";
@@ -417,7 +417,7 @@ function generatingDesktopProducts(products) {
     outerProductContainer.classList.add("product-container-padding");
     outerProductContainer.insertAdjacentHTML(
       "beforeend",
-      '<a class="product-container" href="./product details.html?id=' +
+      '<a class="product-container" href="./product-details.html?id=' +
         product.id +
         '"target="_blank"><div class="product-details-top"><div class="product-image-container"><img src="' +
         product.image +
@@ -436,7 +436,7 @@ function generatingDesktopProducts(products) {
     productsContainerFragment.appendChild(outerProductContainer);
   });
   productsContainer.append(productsContainerFragment);
-}
+};
 function generatingProducts(products) {
   if (isMobileSizeProduct) {
     generatingMobileProducts(products);
