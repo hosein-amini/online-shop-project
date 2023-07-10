@@ -387,21 +387,21 @@ const generatingMobileProducts = (products) => {
     outerProductContainer.classList.add("product-container-padding");
     outerProductContainer.insertAdjacentHTML(
       "beforeend",
-      '<a class="product-container" href="./product-details.html?id=' +
-        product.id +
-        '"><div class="product-image-container"><img src="' +
-        product.image +
-        '" alt="' +
-        product.title +
-        '"></div><div class="product-details-bottom"><div class="product-title">' +
-        product.title +
-        '</div><div class="product-description">' +
-        product.description +
-        '</div><div id="bottom"><div class="product-price">$' +
-        product.price +
-        '</div><div class="add-to-cart"onclick="addingToCart(' +
-        product.id +
-        ',event)">Add to Cart</div></div></div></a>'
+      `<a class="product-container"  href="./product-details.html?id=${product.id}">
+
+        <div class="product-image-container">
+          <img src="${product.image}" alt="${product.title}" />
+        </div>
+      
+        <div class="product-details-bottom">
+          <div class="product-title">${product.title}</div>
+          <div class="product-description">${product.description}</div>
+          <div id="bottom">
+            <div class="product-price">$${product.price}</div>
+            <div class="add-to-cart" onclick="addingToCart(${product.id},event)">Add to Cart</div>
+          </div>
+        </div>
+      </a>`
     );
 
     productsContainerFragment.appendChild(outerProductContainer);
@@ -417,21 +417,20 @@ const generatingDesktopProducts = (products) => {
     outerProductContainer.classList.add("product-container-padding");
     outerProductContainer.insertAdjacentHTML(
       "beforeend",
-      '<a class="product-container" href="./product-details.html?id=' +
-        product.id +
-        '"target="_blank"><div class="product-details-top"><div class="product-image-container"><img src="' +
-        product.image +
-        '" alt="' +
-        product.title +
-        '" /><div class="product-description">' +
-        product.description +
-        '</div></div><div class="product-title">' +
-        product.title +
-        '</div></div><div class="product-details-bottom"><div class="product-price">$' +
-        product.price +
-        '</div><div class="add-to-cart" onclick="addingToCart(' +
-        product.id +
-        ',event)">Add to Cart</div></div></a>'
+      `<a class="product-container" href="./product-details.html?id=${product.id}">
+        <div class="product-details-top">
+          <div class="product-image-container">
+            <img src="${product.image}" alt="${product.title}"/>
+            <div class="product-description">${product.description}</div>
+          </div>
+          <div class="product-title">${product.title}</div>
+        </div>
+        
+        <div class="product-details-bottom">
+          <div class="product-price">$${product.price}</div>
+          <div class="add-to-cart" onclick="addingToCart(${product.id},event)">Add to Cart</div>
+        </div>
+      </a>`
     );
     productsContainerFragment.appendChild(outerProductContainer);
   });
@@ -629,6 +628,7 @@ function successfulAddedPosition() {
       Math.ceil(window.scrollY - slideHeight + menuHeight + 5) + "px";
   }
 }
+
 filteringProducts(allCategoryItems);
 generatingSlider();
 categories.addEventListener("click", displayingCategories);
@@ -637,3 +637,5 @@ window.addEventListener("scroll", scrollHandler);
 window.addEventListener("resize", resizeHandler);
 window.addEventListener("load", getFromLocalStorage);
 window.addEventListener("scroll", successfulAddedPosition);
+
+// export default productsList
