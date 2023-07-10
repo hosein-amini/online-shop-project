@@ -287,7 +287,8 @@ main .container .main-information {
 }
 
 .add-comment textarea {
-  box-shadow: 3px 3px 8px 5px var(--text-color);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   width: 100%;
   padding: 8px 95px 8px 10px;
   border-radius: 8px;
@@ -363,7 +364,6 @@ main .container .main-information {
   align-items: center;
   gap: 10px;
   flex-direction: column;
-
 }
 .successful-added {
   position: relative;
@@ -373,7 +373,7 @@ main .container .main-information {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px ;
+  padding: 10px;
   gap: 20px;
   animation: move-left 1.5s linear alternate 2;
 }
@@ -400,7 +400,7 @@ main .container .main-information {
 }
 @media screen and (min-width: 768px) {
   .successful-added i.fa {
-  font-size: 35px;
+    font-size: 35px;
   }
   .successful-added {
     padding: 10px 15px;
@@ -410,7 +410,7 @@ main .container .main-information {
     font-size: 1.2rem;
   }
   .alert-container {
-    position: absolute ;
+    position: absolute;
   }
   .user-info-items span {
     display: initial;
