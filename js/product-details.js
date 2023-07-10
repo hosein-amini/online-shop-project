@@ -3,6 +3,7 @@ let confirmComment = $.querySelector(".confirm-comment");
 let searchParams = new URLSearchParams(location.search);
 let searchParamsId = searchParams.get("id");
 let productsInCart = [];
+
 let productsList = [
   {
     id: 1,
@@ -245,6 +246,7 @@ let productsList = [
     category: "Shoe",
   },
 ];
+
 let selectedProduct = productsList.find(function (product) {
   return product.id == searchParamsId;
 });
@@ -263,27 +265,54 @@ function generatingProduct(product) {
 
   productImageContainer.insertAdjacentHTML(
     "beforeend",
-    '<img src="' + product.image + '" alt="' + product.title + '"/>'
+    `<img src="${product.image}" alt="${product.title}"/>`
   );
   productDetails.insertAdjacentHTML(
     "afterbegin",
-    '<h1 class="item1 title">' +
-      product.title +
-      '</h1><h3 class="item2 description">' +
-      product.description +
-      '</h3><div class="item-3"><h4 class="price">$' +
-      product.price +
-      '</h4><div class="color"><h3>Choose a Color</h3><div class="color-selector"><div data-color="#008cff"></div><div data-color="#ff00c8"></div><div data-color="#00ff0d"></div><div data-color="#000000"></div><div data-color="#ff0000"></div></div></div></div><div class="add-minus"><div class="minus" onclick="minusProduct()">-</div><div class="product-number">1</div><div class="plus"onclick="plusProduct()">+</div></div><div class="buttons"><button class="buy">Buy Now</button><button class="add" onclick="addingToCart(' +
-      product.id +
-      ')">Add to Cart</button></div><div class="delivery"><div class="part1"><h3>Free Delivery</h3><a href="">Enter your Postal code for Delivery Availability</a></div><div class="part2"><h3>Return Delivery</h3><p>Free 30Days Delivery Returns. <a href="#">Details...</a></p><p></p></div></div>'
+    `
+    <h1 class="item1 title">${product.title}</h1>
+    <h3 class="item2 description">${product.description}</h3>
+    <div class="item-3">
+      <h4 class="price">$${product.price}</h4>
+      <div class="color">
+        <h3>Choose a Color</h3>
+        <div class="color-selector">
+          <div data-color="#008cff"></div>
+          <div data-color="#ff00c8"></div>
+          <div data-color="#00ff0d"></div>
+          <div data-color="#000000"></div>
+          <div data-color="#ff0000"></div>
+        </div>
+      </div>
+    </div> 
+    <div class="add-minus">
+      <div class="minus" onclick="minusProduct()">-</div>
+      <div class="product-number">1</div>
+      <div class="plus" onclick="plusProduct()">+</div>
+    </div>
+    <div class="buttons">
+      <button class="buy">Buy Now</button>
+      <button class="add" onclick="addingToCart(${product.id})">Add to Cart</button>
+    </div>
+    <div class="delivery">
+      <div class="part1">
+        <h3>Free Delivery</h3>
+        <p>Enter your Postal code for Delivery Availability</p>
+      </div>
+      <div class="part2">
+        <h3>Return Delivery</h3>
+        <p>Free 30Days Delivery Returns. <a href="#">Details...</a></p>
+        <p></p>
+      </div>
+      `
   );
   mainInformation.append(productImageContainer, productDetails);
   generatingColor();
 
-  let pageTitle = $.querySelector('title')
-  let pageImage = $.querySelector('link[rel="shortcut icon"]')
-  pageImage.href=product.image
-  pageTitle.innerHTML='All Us Shop | ' + product.title
+  let pageTitle = $.querySelector("title");
+  let pageImage = $.querySelector('link[rel="shortcut icon"]');
+  pageImage.href = product.image;
+  pageTitle.innerHTML = `All Us Shop | ${product.title}`;
 }
 function plusProduct() {
   let productQuantity = $.querySelector(".product-number");
@@ -324,9 +353,17 @@ function creatingComment() {
   let textarea = $.querySelector("textarea");
   commentsContainer.insertAdjacentHTML(
     "afterbegin",
-    '<div class="comment-container"><div class="comment"><div class="user-profile"><img src="images/user-1.png" alt="user-1"><h5>NO2</h5></div><div class="comment-text">' +
-      textarea.value +
-      "</div></div></div>"
+    `
+    <div class="comment-container">
+      <div class="comment">
+        <div class="user-profile">
+          <img src="images/user-1.png" alt="user-1">
+            <h5>NO2</h5>
+        </div>
+        <div class="comment-text">${textarea.value}</div>
+      </div>
+    </div>
+     `
   );
   textarea.value = "";
 }
@@ -346,7 +383,12 @@ function alertAdding() {
   let alertContainer = $.querySelector(".alert-container");
   alertContainer.insertAdjacentHTML(
     "beforeend",
-    '<div class="successful-added"><span>added successfully</span><i class="fa fa-angellist"></i></div>'
+    `
+    <div class="successful-added">
+      <span>added successfully</span>
+      <i class="fa fa-angellist"></i>
+    </div>
+    `
   );
   let successfulAdded = $.querySelectorAll(".successful-added");
 
