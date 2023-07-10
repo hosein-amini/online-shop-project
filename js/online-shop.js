@@ -1,3 +1,5 @@
+// import { productsList } from "./data.js";
+console.log(productsList);
 let $ = document;
 let searchButton = $.querySelector(".search img");
 let categories = $.querySelector(".categories");
@@ -307,6 +309,7 @@ let productsList = [
     quantity: 0,
   },
 ];
+
 let productsInCart = [];
 let filteredProductsList = [];
 let selectedCategoryItems = [];
@@ -637,5 +640,3 @@ window.addEventListener("scroll", scrollHandler);
 window.addEventListener("resize", resizeHandler);
 window.addEventListener("load", getFromLocalStorage);
 window.addEventListener("scroll", successfulAddedPosition);
-
-// export default productsList
