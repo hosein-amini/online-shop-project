@@ -1,9 +1,9 @@
+// import { productsList } from "./data.js";
 let $ = document;
 let confirmComment = $.querySelector(".confirm-comment");
 let searchParams = new URLSearchParams(location.search);
 let searchParamsId = searchParams.get("id");
 let productsInCart = [];
-
 let productsList = [
   {
     id: 1,
@@ -13,6 +13,7 @@ let productsList = [
       "Simple and versatile, suitable for a range of casual occasions.",
     price: "30",
     category: "Cap",
+    quantity: 0,
   },
   {
     id: 2,
@@ -22,6 +23,7 @@ let productsList = [
       "Stylish and unique, perfect for adding a touch of personality to your look.",
     price: "40",
     category: "Cap",
+    quantity: 0,
   },
   {
     id: 3,
@@ -30,6 +32,7 @@ let productsList = [
     description: "Comfortable and casual, suitable for everyday wear.",
     price: "60",
     category: "Hoodie",
+    quantity: 0,
   },
   {
     id: 4,
@@ -39,6 +42,7 @@ let productsList = [
       "Functional and stylish, perfect for outdoor activities or casual wear.",
     price: "80",
     category: "Hoodie",
+    quantity: 0,
   },
   {
     id: 5,
@@ -47,6 +51,7 @@ let productsList = [
     description: "Cool and trendy, perfect for making a fashion statement.",
     price: "100",
     category: "Hoodie",
+    quantity: 0,
   },
   {
     id: 6,
@@ -55,6 +60,7 @@ let productsList = [
     description: "Warm and comfortable, suitable for colder weather.",
     price: "90",
     category: "Hoodie",
+    quantity: 0,
   },
   {
     id: 7,
@@ -63,6 +69,7 @@ let productsList = [
     description: "Rustic and stylish, perfect for a range of casual occasions.",
     price: "80",
     category: "Hoodie",
+    quantity: 0,
   },
   {
     id: 8,
@@ -71,6 +78,7 @@ let productsList = [
     description: "Sophisticated and elegant, suitable for formal occasions.",
     price: "110",
     category: "Hoodie",
+    quantity: 0,
   },
   {
     id: 9,
@@ -79,6 +87,7 @@ let productsList = [
     description: "Stylish and timeless, suitable for a range of occasions.",
     price: "250",
     category: "Jacket",
+    quantity: 0,
   },
   {
     id: 10,
@@ -88,6 +97,7 @@ let productsList = [
       "Cool and casual, perfect for adding a trendy touch to your look.",
     price: "120",
     category: "Jacket",
+    quantity: 0,
   },
   {
     id: 11,
@@ -96,6 +106,7 @@ let productsList = [
     description: "Sophisticated and elegant, suitable for formal occasions.",
     price: "120",
     category: "Shirt",
+    quantity: 0,
   },
   {
     id: 12,
@@ -104,6 +115,7 @@ let productsList = [
     description: "Comfortable and trendy, suitable for everyday wear.",
     price: "30",
     category: "Shirt",
+    quantity: 0,
   },
   {
     id: 13,
@@ -113,6 +125,7 @@ let productsList = [
       "Sporty and stylish, suitable for a range of casual occasions.",
     price: "50",
     category: "Shirt",
+    quantity: 0,
   },
   {
     id: 14,
@@ -122,6 +135,7 @@ let productsList = [
       "Classic and versatile, suitable for a range of occasions from work to casual wear.",
     price: "80",
     category: "Shirt",
+    quantity: 0,
   },
   {
     id: 15,
@@ -131,6 +145,7 @@ let productsList = [
       "Simple and versatile, suitable for a range of casual occasions.",
     price: "10",
     category: "Sock",
+    quantity: 0,
   },
   {
     id: 16,
@@ -139,6 +154,7 @@ let productsList = [
     description: "Elegant and classy, suitable for formal occasions.",
     price: "15",
     category: "Sock",
+    quantity: 0,
   },
   {
     id: 17,
@@ -148,6 +164,7 @@ let productsList = [
       "Flattering and comfortable, suitable for a variety of occasions.",
     price: "100",
     category: "Trouser",
+    quantity: 0,
   },
   {
     id: 18,
@@ -157,6 +174,7 @@ let productsList = [
       "Classic and versatile, suitable for a range of occasions from work to casual wear.",
     price: "80",
     category: "Trouser",
+    quantity: 0,
   },
   {
     id: 19,
@@ -166,6 +184,7 @@ let productsList = [
       "Functional and stylish, perfect for outdoor activities or casual wear.",
     price: "70",
     category: "Short",
+    quantity: 0,
   },
   {
     id: 20,
@@ -174,6 +193,7 @@ let productsList = [
     description: "Comfortable and stylish, suitable for everyday wear.",
     price: "120",
     category: "Shoe",
+    quantity: 0,
   },
   {
     id: 21,
@@ -183,6 +203,7 @@ let productsList = [
       "Classic and versatile, suitable for a range of occasions from work to formal events.",
     price: "200",
     category: "Shoe",
+    quantity: 0,
   },
   {
     id: 22,
@@ -192,6 +213,7 @@ let productsList = [
       "Functional and comfortable, perfect for sports and outdoor activities.",
     price: "150",
     category: "Shoe",
+    quantity: 0,
   },
   {
     id: 23,
@@ -201,6 +223,7 @@ let productsList = [
       "Sturdy and stylish, suitable for a range of casual and outdoor occasions.",
     price: "170",
     category: "Shoe",
+    quantity: 0,
   },
   {
     id: 24,
@@ -210,6 +233,7 @@ let productsList = [
       "These chic boots are perfect for casual outings with their rustic style.",
     price: "150",
     category: "Shoe",
+    quantity: 0,
   },
   {
     id: 25,
@@ -218,6 +242,7 @@ let productsList = [
     description: "Elevate any outfit with this refined and polished accessory.",
     price: "280",
     category: "Shoe",
+    quantity: 0,
   },
   {
     id: 26,
@@ -226,6 +251,7 @@ let productsList = [
     description: "Classic yet trendy, perfect for a range of occasions.",
     price: "220",
     category: "Shoe",
+    quantity: 0,
   },
   {
     id: 27,
@@ -235,6 +261,7 @@ let productsList = [
       "Make a statement with these elegant shoes at your next formal event.",
     price: "175",
     category: "Shoe",
+    quantity: 0,
   },
   {
     id: 28,
@@ -244,6 +271,7 @@ let productsList = [
       "Sleek and sturdy, ideal for outdoor adventures and relaxed weekends.",
     price: "250",
     category: "Shoe",
+    quantity: 0,
   },
 ];
 
@@ -286,9 +314,9 @@ function generatingProduct(product) {
       </div>
     </div> 
     <div class="add-minus">
-      <div class="minus" onclick="minusProduct()">-</div>
+      <div class="minus" onclick="minusProduct()"> - </div>
       <div class="product-number">1</div>
-      <div class="plus" onclick="plusProduct()">+</div>
+      <div class="plus" onclick="plusProduct()"> + </div>
     </div>
     <div class="buttons">
       <button class="buy">Buy Now</button>
