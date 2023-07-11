@@ -1,4 +1,4 @@
-import { productsList ,alertAdding , $} from "./data.js";
+import { productsList, alertAdding, $ } from "./data.js";
 let searchButton = $.querySelector(".search img");
 let categories = $.querySelector(".categories");
 let hamburgerMenu = $.querySelector(".hamburger-menu");
@@ -81,6 +81,7 @@ function generatingPageButtons(products) {
   let pages = Math.ceil(products.length / pageItems);
   let pageButtonsContainer = $.querySelector(".pagination");
   pageButtonsContainer.innerHTML = "";
+
   for (let pageNumber = 1; pageNumber <= pages; pageNumber++) {
     let pageButton = $.createElement("div");
     pageButton.classList.add("page");
@@ -351,8 +352,8 @@ if (isMobileSize) {
   searchButton.addEventListener("click", displayingDesktopSearchField);
 }
 
-filteringProducts(allCategoryItems);
 generatingSlider();
+filteringProducts(allCategoryItems);
 categories.addEventListener("click", displayingCategories);
 hamburgerMenu.addEventListener("click", displayingMenu);
 window.addEventListener("scroll", scrollHandler);
@@ -360,6 +361,4 @@ window.addEventListener("resize", resizeHandler);
 window.addEventListener("load", getFromLocalStorage);
 window.addEventListener("scroll", successfulAddedPosition);
 
-
 window.addingToCart = addingToCart;
-
