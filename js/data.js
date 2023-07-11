@@ -282,8 +282,9 @@ function alertAdding() {
   let successfulAdded = $.querySelectorAll(".successful-added");
 
   successfulAdded.forEach(function (alert) {
-    alert.addEventListener("animationend", function (event) {
-      event.target.remove();
+    alert.addEventListener("animationend", function () {
+      this.remove()
+      // event.target.remove();
     });
   });
 }
