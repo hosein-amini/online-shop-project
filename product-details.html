@@ -4,71 +4,75 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link rel="shortcut icon" href="images/logo3.png" type="image/x-icon" />
-    <link rel="stylesheet" href="./css/product-details.css" />
-    <script src="./js/router.js" type="module"></script>
-    <script src="./js/product-details.js" defer></script>
+
+    <link rel="stylesheet" href="css/product-details.css" />
+    <script type="module" src="./js/product-details.js" ></script>
+    <title></title>
   </head>
   <body>
-    <div id="content">
-      <nav>
-        <div class="container">
-          <div class="menu">
-            <a href="./online shop.html" class="home"
-              ><i class="fa fa-home"></i
-            ></a>
-            <span class="main-title">All Us Shop</span>
-            <div class="user-info-items">
-              <a href="cart.html" class="user-info-item">
-                <i class="fa fa-cart-arrow-down"></i>
-                <span>Cart</span>
-              </a>
-              <a href="#" class="user-info-item">
-                <i class="fa fa-user"></i>
-                <span>Account</span>
-              </a>
-            </div>
+    <nav>
+      <div class="container">
+        <div class="menu">
+          <a href="./online-shop.html" class="home"
+            ><i class="fa fa-home"></i
+          ></a>
+
+          <span class="main-title">All Us Shop</span>
+
+          <div class="user-info-items">
+            <a href="cart.html" class="user-info-item">
+              <i class="fa fa-cart-arrow-down"></i>
+              <span>Cart</span>
+            </a>
+
+            <a href="#" class="user-info-item">
+              <i class="fa fa-user"></i>
+              <span>Account</span>
+            </a>
           </div>
         </div>
-      </nav>
-      <main class="main">
-        <div class="container">
-          <div class="main-information">
-            <div class="product-image-container">
-              <!-- <img src="images/hoodie-2.png" alt="hoodie" /> -->
-            </div>
-            <div class="product-details">
-              <!-- <h1 class="item1 title">Zip-up Hoodie</h1>
-              <h3 class="item2 description">
-                Functional and stylish, perfect for outdoor activities or casual
-                wear.
-              </h3>
-              <div class="item-3">
-                <h4 class="price">$80</h4>
-                <div class="color">
-                  <h3>Choose a Color</h3>
-                  <div class="color-selector">
-                    <div data-color="#008cff"></div>
-                    <div data-color="#ff00c8"></div>
-                    <div data-color="#00ff0d"></div>
-                    <div data-color="#000000"></div>
-                    <div data-color="#ff0000"></div>
-                  </div>
+      </div>
+    </nav>
+    <main class="main">
+      <div class="container">
+        <div class="main-information">
+          <div class="product-image-container">
+            <!--? append product image here-->
+          </div>
+          <div class="product-details">
+            <!--? append product details here-->
+          </div>
+        </div>
+
+        <div class="comments-container">
+          <h3>comments ...</h3>
+
+          <div class="add-comment">
+            <img src="images/user-1.png" alt="user-1" />
+            <textarea
+              rows="3"
+              placeholder="Add your comment here..."
+            ></textarea>
+            <div class="confirm-comment">send it</div>
+          </div>
+
+          <div class="comments">
+            <!--? append new comment here  -->
+            <div class="comment-container">
+              <div class="comment">
+                <div class="user-profile">
+                  <img src="images/user-2.png" alt="user-1" />
+                  <h5>Emily Johnson</h5>
                 </div>
-              </div>
-              <div class="add-minus">
-                <div class="minus">-</div>
-                <div class="product-number">2</div>
-                <div class="plus">+</div>
-              </div>
-              <div class="buttons">
-                <button class="buy">Buy Now</button>
-                <button class="add">Add to Cart</button>
+                <div class="comment-text">
+                  This dress is so comfortable and flowy - it feels like I'm
+                  wearing nothing at all.
+                </div>
               </div>
               <div class="delivery">
                 <div class="part1">
@@ -153,7 +157,12 @@
             </div> -->
           </div>
         </div>
-      </main>
-    </div>
+
+
+        <div class="alert-container">
+          <!--? append alert here  -->
+        </div>
+      </div>
+    </main>
   </body>
 </html>
