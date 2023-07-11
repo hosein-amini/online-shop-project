@@ -51,12 +51,8 @@ let allCategoryItems = [
   "Jacket",
   "Hoodie",
 ];
-if (isMobileSize) {
-  searchButton.addEventListener("click", displayingMobileSearchField);
-} else {
-  searchButton.addEventListener("click", displayingDesktopSearchField);
-}
-function addingToCart(productId, event) {
+
+const addingToCart = (productId, event) => {
   event.preventDefault();
   let addedProduct = filteredProductsList.find(function (product) {
     return product.id === productId;
@@ -79,6 +75,7 @@ function addingToCart(productId, event) {
   }
   localStorage.setItem("localProductsInCart", JSON.stringify(productsInCart));
   alertAdding();
+
 }
 function generatingPageButtons(products) {
   let pages = Math.ceil(products.length / pageItems);
@@ -98,8 +95,8 @@ function generatingPageButtons(products) {
   let firstPage = $.querySelector("#page1");
   firstPage.classList.add("active");
   changePage(1, products);
-}
-function changePage(pageNumber, products) {
+};
+const changePage = (pageNumber, products) => {
   let activeButton = $.querySelector(".active");
   let selectedButton = $.getElementById("page" + pageNumber);
   let endProduct = pageNumber * pageItems;
@@ -108,8 +105,8 @@ function changePage(pageNumber, products) {
   selectedButton.classList.add("active");
   let selectedFinalFilteredProducts = products.slice(startProduct, endProduct);
   generatingProducts(selectedFinalFilteredProducts);
-}
-function generatingMobileProducts(products) {
+};
+const generatingMobileProducts = (products) => {
   let productsContainer = $.querySelector(".products-container");
   let productsContainerFragment = new DocumentFragment();
   productsContainer.innerHTML = "";
@@ -118,6 +115,7 @@ function generatingMobileProducts(products) {
     outerProductContainer.classList.add("product-container-padding");
     outerProductContainer.insertAdjacentHTML(
       "beforeend",
+
       `<a class="product-container"  href="./product-details.html?id=${product.id}">
 
         <div class="product-image-container">
@@ -138,8 +136,8 @@ function generatingMobileProducts(products) {
     productsContainerFragment.appendChild(outerProductContainer);
   });
   productsContainer.append(productsContainerFragment);
-}
-function generatingDesktopProducts(products) {
+};
+const generatingDesktopProducts = (products) => {
   let productsContainer = $.querySelector(".products-container");
   let productsContainerFragment = new DocumentFragment();
   productsContainer.innerHTML = "";
@@ -166,15 +164,15 @@ function generatingDesktopProducts(products) {
     productsContainerFragment.appendChild(outerProductContainer);
   });
   productsContainer.append(productsContainerFragment);
-}
-function generatingProducts(products) {
+};
+const generatingProducts = (products) => {
   if (isMobileSizeProduct) {
     generatingMobileProducts(products);
   } else {
     generatingDesktopProducts(products);
   }
-}
-function filteringProducts(selectedCategories) {
+};
+const filteringProducts = (selectedCategories) => {
   filteredProductsList = [];
   selectedCategories.forEach(function (selectedCategoryItem) {
     let filteredProducts = productsList.filter(function (selectedProduct) {
@@ -183,16 +181,16 @@ function filteringProducts(selectedCategories) {
     filteredProductsList.push(...filteredProducts);
   });
   generatingPageButtons(filteredProductsList);
-}
-function isAllButtonActive(allItemButton, items) {
+};
+const isAllButtonActive = (allItemButton, items) => {
   allItemButton.classList.add("change-color");
   Object.values(items).forEach(function (item) {
     item.classList.remove("change-color");
   });
   selectedCategoryItems.length = [];
   filteringProducts(allCategoryItems);
-}
-function selectCategories(allItemButton, item, items) {
+};
+const selectCategories = (allItemButton, item, items) => {
   item.classList.toggle("change-color");
   let itemIndex = selectedCategoryItems.findIndex(function (selectedItem) {
     return selectedItem === item.innerHTML;
@@ -216,8 +214,8 @@ function selectCategories(allItemButton, item, items) {
   } else {
     filteringProducts(selectedCategoryItems);
   }
-}
-function displayingCategories() {
+};
+const displayingCategories = () => {
   let showFilter = $.querySelector(".plus");
   let hiddenFilter = $.querySelector(".minus");
   let categoriesItems = $.querySelector(".categories-items");
@@ -244,16 +242,16 @@ function displayingCategories() {
   allItemButton.addEventListener("click", function () {
     isAllButtonActive(allItemButton, items);
   });
-}
-function displayingDesktopSearchField() {
+};
+const displayingDesktopSearchField = () => {
   let desktopSearchField = $.querySelector(".search input");
   desktopSearchField.classList.toggle("show");
-}
-function displayingMobileSearchField() {
+};
+const displayingMobileSearchField = () => {
   let mobileSearchField = $.querySelector(".menu > input");
   mobileSearchField.classList.toggle("sliding");
-}
-function displayingMenu() {
+};
+const displayingMenu = () => {
   let mobileMenu = $.querySelector(".mobile-menu");
   let mobileMenuExit = $.querySelector(".mobile-menu-exit");
   mobileMenu.style.left = 0;
@@ -264,8 +262,8 @@ function displayingMenu() {
     mobileMenuExit.style.display = "none";
     document.body.style.overflow = "";
   });
-}
-function generatingSlider() {
+};
+const generatingSlider = () => {
   let sliderWrapper = $.querySelector(".slider-wrapper");
   let slideFragment = new DocumentFragment();
   slideContainer.forEach(function (selectedSlide) {
@@ -283,8 +281,8 @@ function generatingSlider() {
     slideFragment.appendChild(slide);
   });
   sliderWrapper.appendChild(slideFragment);
-}
-function scrollHandler() {
+};
+const scrollHandler = () => {
   let items = $.querySelector(".items");
   let logo = $.querySelector(".logo");
   let container = $.querySelector(".container");
@@ -302,8 +300,8 @@ function scrollHandler() {
       container.clientWidth
   );
   scrollFiller.style.width = scrollFillerValue + "%";
-}
-function resizeHandler() {
+};
+const resizeHandler = () => {
   isMobileSize = window.matchMedia("(max-width : 768px)").matches;
   isMobileSizeProduct = window.innerWidth <= 576;
 
@@ -322,8 +320,8 @@ function resizeHandler() {
     prevMobileSizeProduct = isMobileSizeProduct;
     generatingPageButtons(filteredProductsList);
   }
-}
-function getFromLocalStorage() {
+};
+const getFromLocalStorage = () => {
   let localProductsInCart;
   if (localStorage.getItem("localProductsInCart")) {
     localProductsInCart = JSON.parse(
@@ -333,6 +331,8 @@ function getFromLocalStorage() {
   } else {
     productsInCart = [];
   }
+
+
 }
 function successfulAddedPosition() {
   let alertContainer = $.querySelector(".alert-container");
@@ -344,6 +344,11 @@ function successfulAddedPosition() {
     alertContainer.style.top =
       Math.ceil(window.scrollY - slideHeight + menuHeight + 5) + "px";
   }
+};
+if (isMobileSize) {
+  searchButton.addEventListener("click", displayingMobileSearchField);
+} else {
+  searchButton.addEventListener("click", displayingDesktopSearchField);
 }
 
 filteringProducts(allCategoryItems);
@@ -357,3 +362,4 @@ window.addEventListener("scroll", successfulAddedPosition);
 
 
 window.addingToCart = addingToCart;
+
