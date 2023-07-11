@@ -313,7 +313,7 @@ li:hover a {
 }
 
 /*?----------------------------------------------------------categories-----*/
-#content > .container {
+body > .container {
   padding: 40px 20px;
   overflow: hidden;
 }
@@ -384,7 +384,6 @@ li:hover a {
 
 /*?----------------------------------------------------------main-----*/
 /**-------------------------------------------products-----*/
-
 main {
   position: relative;
   top: -50px;
@@ -448,7 +447,7 @@ main.top-to-bottom {
   font-weight: 900;
   padding: 10px;
   backdrop-filter: blur(5px);
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.5);
   transition: 0.8s;
 }
 .product-container:hover .product-description {
@@ -1096,7 +1095,8 @@ footer {
   }
 }
 @media screen and (max-width: 768px) {
-  #content > .container {
+
+  body > .container {
     padding: 20px 10px;
   }
   main {
@@ -1233,7 +1233,7 @@ footer {
     z-index: 999;
   }
   .successful-added {
-    padding: 10px;
+    padding: 10px ;
     gap: 20px;
   }
   .successful-added span {
