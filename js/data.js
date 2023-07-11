@@ -1,3 +1,4 @@
+let $ = document;
 let productsList = [
   {
     id: 1,
@@ -268,5 +269,22 @@ let productsList = [
     quantity: 0,
   },
 ];
+function alertAdding() {
+  let alertContainer = $.querySelector(".alert-container");
+  alertContainer.insertAdjacentHTML(
+    "beforeend",
+    `<div class="successful-added">
+      <span>added successfully</span>
+      <i class="fa fa-angellist"></i>
+     </div>`
+  );
+  
+  let successfulAdded = $.querySelectorAll(".successful-added");
 
-export { productsList };
+  successfulAdded.forEach(function (alert) {
+    alert.addEventListener("animationend", function (event) {
+      event.target.remove();
+    });
+  });
+}
+export { productsList , alertAdding , $};
