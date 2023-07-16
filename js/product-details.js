@@ -152,6 +152,7 @@ confirmComment.addEventListener("click", creatingComment);
 window.addEventListener("load", getFromLocalStorage);
 window.addEventListener("scroll", alertAddingPosition);
 
+
 window.plusProduct = plusProduct;
 window.minusProduct = minusProduct;
 window.addingToCart = addingToCart;
