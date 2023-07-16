@@ -39,23 +39,28 @@ function generatingCart() {
       let tableTr = $.createElement("tr");
       tableTr.insertAdjacentHTML(
         "beforeend",
-        '<td><div><img src="' +
-          product.image +
-          '" alt="' +
-          product.title +
-          '"><h3>' +
-          product.title +
-          '</h3></div></td><td><div><div class="plus-minus"><div class="minus" onclick="minusProduct(' +
-          product.id +
-          ')">-</div><div class="number">' +
-          product.quantity +
-          '</div><div class="plus" onclick="plusProduct(' +
-          product.id +
-          ')">+</div></div><div class="remove"onclick="removeProduct(' +
-          product.id +
-          ')"><i class="fa fa-trash"></i><span>remove</span></div></div></td><td><div><span>$' +
-          product.price +
-          "</span></div></td>"
+        `<td>
+          <div>
+            <img src="${product.image}" alt="${product.title}">
+            <h3>${product.title}</h3>
+          </div>
+         </td>
+         <td>
+          <div>
+            <div class="plus-minus">
+              <div class="minus" onclick="minusProduct(${product.id})">-</div>
+              <div class="number">${product.quantity}</div>
+              <div class="plus" onclick="plusProduct(${product.id})">+</div>
+            </div>
+            <div class="remove"onclick="removeProduct(${product.id})">
+              <i class="fa fa-trash"></i>
+              <span>remove</span>
+            </div>
+           </div>
+          </td>
+         <td>
+          <div><span>$${product.price}</span></div>
+         </td>`
       );
       tBodyFragment.append(tableTr);
       sumPrices += product.price * product.quantity;
