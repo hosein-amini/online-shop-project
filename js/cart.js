@@ -1,13 +1,16 @@
 let $ = document;
 let totalPriceContainer = $.querySelector(".total-price-container");
 let checkOutButton = $.querySelector(".total-price-container > button");
+let cancelButton = $.querySelector(".cancel");
+let modalWrapper = $.querySelector(".login-alert-bg");
+let modal = $.querySelector(".login-alert");
 let productsInCart = [];
 
 function totalPricePosition() {
-  if (window.scrollY >= 86) {
-    totalPriceContainer.style.top = Math.ceil(window.scrollY + 54) + "px";
+  if (window.scrollY >= 9) {
+    totalPriceContainer.style.top = Math.ceil(window.scrollY + 60) + "px";
   } else {
-    totalPriceContainer.style.top = 140 + "px";
+    totalPriceContainer.style.top = 60 + "px";
   }
 }
 function getFromLocalStorage() {
@@ -114,13 +117,17 @@ function removeProduct(productId) {
   generatingCart();
 }
 function paying() {
-  let purchasedComplete = $.querySelector(".successful-purchase");
-  purchasedComplete.classList.add("confirm");
-  productsInCart = [];
-  localStorage.setItem("localProductsInCart", JSON.stringify(productsInCart));
-  setTimeout(() => {
-    location.reload();
-  }, 3000);
+  if ($.cookie) {
+    let purchasedComplete = $.querySelector(".successful-purchase");
+    purchasedComplete.classList.add("confirm");
+    productsInCart = [];
+    localStorage.setItem("localProductsInCart", JSON.stringify(productsInCart));
+    setTimeout(() => {
+      location.reload();
+    }, 3000);
+  } else {
+    openCloseModal();
+  }
 }
 function successfulPurchasePosition() {
   let successfulPurchase = $.querySelector(".successful-purchase");
@@ -134,6 +141,11 @@ function successfulPurchasePosition() {
     successfulPurchase.style.top = 54 + "px";
   }
 }
+function openCloseModal() {
+  modalWrapper.classList.toggle("showModal");
+  modal.classList.toggle("changeModalSitu");
+}
+cancelButton.addEventListener("click", openCloseModal);
 checkOutButton.addEventListener("click", paying);
 window.addEventListener("load", getFromLocalStorage);
 window.addEventListener("scroll", totalPricePosition);

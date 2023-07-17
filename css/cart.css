@@ -52,11 +52,7 @@ nav {
   color: var(--white-color);
   font-weight: 900;
 }
-/* .user-info-items {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-} */
+
 .user-info-item {
   display: flex;
   align-items: center;
@@ -103,7 +99,7 @@ main .empty-text {
 .cart > h1 {
   font-size: 2rem;
   text-align: center;
-  margin: 80px 2px 5px;
+  margin: 0 2px 5px;
   background-color: var(--main-color);
   border-radius: 100% 100% 0 0;
   border-radius: 10px;
@@ -337,6 +333,74 @@ main.empty .empty-text span {
     left: 0;
   }
 }
+.login-alert-bg {
+  position: fixed;
+  min-height: 100vh;
+  min-width: 100vw;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px) brightness(70%);
+  opacity: 0;
+  visibility: hidden;
+  /**----------------------  */
+  transition: 0.5s;
+  /**----------------------  */
+}
+.login-alert {
+  position: absolute;
+  top: -50%;
+  transform: translateY(-50%);
+  /* z-index: 9999; */
+  width: 95%;
+  max-width: 360px;
+  text-align: center;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: var(--white-color);
+  transition: .8s;
+}
+.login-alert h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: red;
+}
+
+.login-alert > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.login-alert .confirm a {
+  background-color: greenyellow;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: 0.5s;
+}
+.login-alert .confirm a:hover {
+  background-color: #03b120;
+  color: var(--white-color);
+}
+.login-alert .cancel {
+  background-color: var(--main-color);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.login-alert .cancel:hover {
+  background-color: red;
+  color: var(--white-color);
+}
 
 @media screen and (min-width: 768px) {
   .successful-purchase {
@@ -394,7 +458,7 @@ main.empty .empty-text span {
     width: 28%;
     position: absolute;
     right: 5px;
-    top: 140px;
+    top: 60px;
   }
   main.empty > img {
     width: 300px;
@@ -404,6 +468,15 @@ main.empty .empty-text span {
     font-size: 2rem;
   }
 }
+
 .none {
   display: none;
+}
+
+.showModal{
+  opacity: 1;
+  visibility: visible;
+}
+.changeModalSitu{
+  top: 50%;
 }
