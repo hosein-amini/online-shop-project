@@ -34,11 +34,12 @@ passwordWrapper.addEventListener("click", (e) => {
   }
 });
 
-function setCookie(userNameValue, passwordValue) {
+function setCookie(userNameValue, passwordValue, rememberFlag) {
   let nowDate = new Date();
   nowDate.setTime(nowDate.getTime() + 10 * 60 * 1000);
   $.cookie = `userName=${userNameValue};Path=/;expires=${nowDate}`;
   $.cookie = `password=${passwordValue};Path=/;expires=${nowDate}`;
+  $.cookie = `remember=${rememberFlag};Path=/;expires=${nowDate}`;
 }
 
 function clearInput() {
@@ -50,7 +51,12 @@ loginButton.addEventListener("click", (e) => {
   if (regValidUser.test(userName.value)) {
     if (regValidPass.test(password.value)) {
       if (checkBox.checked) {
-        setCookie(userName.value, password.value);
+        setCookie(userName.value, password.value, true);
+        setTimeout(() => {
+          history.back();
+        }, 1000);
+      } else {
+        setCookie(userName.value, password.value, false);
         setTimeout(() => {
           history.back();
         }, 1000);
@@ -101,13 +107,12 @@ password.addEventListener("keyup", () => {
   }
 });
 
-// !-------------------------------------
-
 userName.addEventListener("focus", () => {
   if ($.cookie) {
     let cookieArray = $.cookie.split("; ");
-    if (regUserName.test(userName.value)) {
-      if (cookieArray[0].includes("userName")) {
+    if (cookieArray[2].substring(cookieArray[2].indexOf("=") + 1) == "true") {
+      checkBox.checked = true;
+      if (regUserName.test(userName.value)) {
         getCookie(userName, cookieArray[0]);
         getCookie(password, cookieArray[1]);
       }
