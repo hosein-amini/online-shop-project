@@ -30,9 +30,19 @@ body {
   justify-content: center;
   height: 100vh;
 }
+
+.home > .fa-home {
+  color: var(--secondary-color);
+  font-size: 2rem;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
 .login-page {
   max-width: 360px;
   width: 95%;
+  position: relative;
 }
 .form {
   background-color: #ffffff;
@@ -87,7 +97,7 @@ body {
 .form button:hover,
 .form button:active,
 .form button:focus {
-  background-color: var(--black-color);
+  background-color: var(--secondary-color);
 }
 .login-form > div:last-of-type {
   margin-bottom: var(--initial-size);
@@ -105,6 +115,8 @@ label {
   width: var(--initial-size);
   height: var(--initial-size);
   cursor: pointer;
+  accent-color: var(--main-color);
+
 }
 .form .message {
   color: var(--text-color);
