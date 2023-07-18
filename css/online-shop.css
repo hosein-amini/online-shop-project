@@ -1095,7 +1095,6 @@ footer {
   }
 }
 @media screen and (max-width: 768px) {
-
   body > .container {
     padding: 20px 10px;
   }
@@ -1168,11 +1167,12 @@ footer {
     border-radius: 0 0 1rem 1rem;
     top: 100%;
     color: var(--black-color);
-    transition: 0.6s;
+    transition: 0.3s;
   }
   .menu > input.sliding {
     height: 100%;
-    box-shadow: 0 2px 5px 1px var(--secondary-color);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
+      rgba(0, 0, 0, 0.05) 0px 5px 10px;
   }
   .hamburger-menu {
     display: block;
@@ -1233,7 +1233,7 @@ footer {
     z-index: 999;
   }
   .successful-added {
-    padding: 10px ;
+    padding: 10px;
     gap: 20px;
   }
   .successful-added span {
@@ -1407,7 +1407,8 @@ footer {
     flex-direction: row;
     gap: 10px;
     overflow: hidden;
-    box-shadow: 0 0 9px 0 var(--secondary-color);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
+      rgba(0, 0, 0, 0.05) 0px 5px 10px;
     max-width: 460px;
     height: 100%;
   }
