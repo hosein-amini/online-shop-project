@@ -7,6 +7,11 @@ let prevMobileSize = isMobileSize;
 let isMobileSizeProduct = window.innerWidth <= 576;
 let prevMobileSizeProduct = isMobileSizeProduct;
 let pageItems = 10;
+let searchBox = $.querySelector(".search input");
+let suggestionsBox = $.querySelector(".search .autocom-box");
+let mobileSearchBox = $.querySelector(".mobile-search input");
+let mobileSuggestionsBox = $.querySelector(".mobile-search .autocom-box");
+
 let slideContainer = [
   {
     id: 1,
@@ -244,11 +249,17 @@ const displayingCategories = () => {
   });
 };
 const displayingDesktopSearchField = () => {
+  suggestionsBox.classList.add("hide");
+  searchBox.value = "";
+  searchBox.classList.remove("ChangeborderRadius");
   let desktopSearchField = $.querySelector(".search input");
   desktopSearchField.classList.toggle("show");
 };
 const displayingMobileSearchField = () => {
-  let mobileSearchField = $.querySelector(".menu > input");
+  mobileSuggestionsBox.classList.add("hide");
+  mobileSearchBox.value = "";
+  mobileSearchBox.classList.remove("ChangeborderRadius");
+  let mobileSearchField = $.querySelector(".mobile-search");
   mobileSearchField.classList.toggle("sliding");
 };
 const displayingMenu = () => {
@@ -268,15 +279,17 @@ const generatingSlider = () => {
   let slideFragment = new DocumentFragment();
   slideContainer.forEach(function (selectedSlide) {
     let slide = $.createElement("div");
-    slide.classList.add("slide", "slide" + selectedSlide.id);
-    slide.style.backgroundImage = "url(" + selectedSlide.image + ")";
+    slide.classList.add("slide", `slide${selectedSlide.id}`);
+    slide.style.backgroundImage = `url("${selectedSlide.image}")`;
     slide.insertAdjacentHTML(
       "beforeend",
-      '<div class="center-title"><div><h1>' +
-        selectedSlide.description1 +
-        "</h1><h1>" +
-        selectedSlide.description2 +
-        '</h1></div><a href="#">Shop Now</a></div>'
+      `<div class="center-title">
+        <div>
+          <h1>${selectedSlide.description1}</h1>
+          <h1>${selectedSlide.description2}</h1>
+        </div>
+        <a href="#">Shop Now</a>
+       </div>`
     );
     slideFragment.appendChild(slide);
   });
@@ -299,9 +312,11 @@ const resizeHandler = () => {
   if (isMobileSize !== prevMobileSize) {
     prevMobileSize = isMobileSize;
     if (isMobileSize) {
+      selectingSuggestion();
       searchButton.removeEventListener("click", displayingDesktopSearchField);
       searchButton.addEventListener("click", displayingMobileSearchField);
     } else {
+      mobileSelectingSuggestion();
       searchButton.removeEventListener("click", displayingMobileSearchField);
       searchButton.addEventListener("click", displayingDesktopSearchField);
     }
@@ -334,6 +349,100 @@ function successfulAddedPosition() {
       Math.ceil(window.scrollY - slideHeight + menuHeight + 5) + "px";
   }
 }
+const searching = () => {
+  searchBox.classList.add("ChangeborderRadius");
+  let searchValue = searchBox.value.toLowerCase();
+  if (searchValue) {
+    suggestionsBox.classList.remove("hide");
+    suggestionsBox.innerHTML = "";
+
+    let selectedSuggestions = productsList.filter(function (product) {
+      return product.title.toLocaleLowerCase().includes(searchValue);
+    });
+    if (selectedSuggestions.length) {
+      suggestionsBoxGenerator(selectedSuggestions);
+    } else {
+      selectedSuggestions = [{ id: 0, title: "not found !!!" }];
+      suggestionsBoxGenerator(selectedSuggestions);
+    }
+  } else {
+    suggestionsBox.classList.add("hide");
+    searchBox.classList.remove("ChangeborderRadius");
+  }
+};
+const selectingSuggestion = () => {
+  searchBox.value = "";
+  suggestionsBox.classList.add("hide");
+  searchBox.classList.remove("ChangeborderRadius");
+};
+const suggestionsBoxGenerator = (products) => {
+  let suggestionsBoxFragment = new DocumentFragment();
+  products.some(function (product) {
+    let productNameWrapper = $.createElement("li");
+    if (product.id === 0) {
+      productNameWrapper.insertAdjacentHTML(
+        "beforeend",
+        `<a href="#0" onclick="selectingSuggestion()">${product.title}</a>`
+      );
+      suggestionsBoxFragment.append(productNameWrapper);
+      return true;
+    }
+    productNameWrapper.insertAdjacentHTML(
+      "beforeend",
+      `<a href="./product-details.html?id=${product.id}" onclick="selectingSuggestion(event)">${product.title}</a>`
+    );
+    suggestionsBoxFragment.append(productNameWrapper);
+  });
+  suggestionsBox.append(suggestionsBoxFragment);
+};
+
+const mobileSearching = () => {
+  mobileSearchBox.classList.add("ChangeborderRadius");
+  let searchValue = mobileSearchBox.value.toLowerCase();
+  if (searchValue) {
+    mobileSuggestionsBox.classList.remove("hide");
+    mobileSuggestionsBox.innerHTML = "";
+
+    let selectedSuggestions = productsList.filter(function (product) {
+      return product.title.toLocaleLowerCase().includes(searchValue);
+    });
+    if (selectedSuggestions.length) {
+      mobileSuggestionsBoxGenerator(selectedSuggestions);
+    } else {
+      selectedSuggestions = [{ id: 0, title: "not found !!!" }];
+      mobileSuggestionsBoxGenerator(selectedSuggestions);
+    }
+  } else {
+    mobileSuggestionsBox.classList.add("hide");
+    mobileSearchBox.classList.remove("ChangeborderRadius");
+  }
+};
+const mobileSelectingSuggestion = () => {
+  mobileSearchBox.value = "";
+  mobileSuggestionsBox.classList.add("hide");
+  mobileSearchBox.classList.remove("ChangeborderRadius");
+};
+const mobileSuggestionsBoxGenerator = (products) => {
+  let mobileSuggestionsBoxFragment = new DocumentFragment();
+  products.some(function (product) {
+    let productNameWrapper = $.createElement("li");
+    if (product.id === 0) {
+      productNameWrapper.insertAdjacentHTML(
+        "beforeend",
+        `<a href="#0" onclick="mobileSelectingSuggestion()">${product.title}</a>`
+      );
+      mobileSuggestionsBoxFragment.append(productNameWrapper);
+      return true;
+    }
+    productNameWrapper.insertAdjacentHTML(
+      "beforeend",
+      `<a href="./product-details.html?id=${product.id}" onclick="mobileSelectingSuggestion(event)">${product.title}</a>`
+    );
+    mobileSuggestionsBoxFragment.append(productNameWrapper);
+  });
+  mobileSuggestionsBox.append(mobileSuggestionsBoxFragment);
+};
+
 if (isMobileSize) {
   searchButton.addEventListener("click", displayingMobileSearchField);
 } else {
@@ -344,9 +453,13 @@ generatingSlider();
 filteringProducts(allCategoryItems);
 categories.addEventListener("click", displayingCategories);
 hamburgerMenu.addEventListener("click", displayingMenu);
+searchBox.addEventListener("input", searching);
+mobileSearchBox.addEventListener("input", mobileSearching);
 window.addEventListener("scroll", scrollHandler);
 window.addEventListener("resize", resizeHandler);
 window.addEventListener("load", getFromLocalStorage);
 window.addEventListener("scroll", successfulAddedPosition);
 
 window.addingToCart = addingToCart;
+window.selectingSuggestion = selectingSuggestion;
+window.mobileSelectingSuggestion = mobileSelectingSuggestion;
