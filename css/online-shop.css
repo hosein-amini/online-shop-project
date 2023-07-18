@@ -61,7 +61,7 @@ nav {
 .title {
   display: none;
 }
-.menu > input {
+.mobile-search > input {
   display: none;
 }
 .change-to-none {
@@ -124,6 +124,7 @@ li:hover a {
   gap: 10px;
   margin-left: auto;
 }
+/**-------------------------------------------here---*/
 .search input {
   width: 0;
   padding: 8px 10px;
@@ -133,6 +134,46 @@ li:hover a {
   opacity: 0;
   transition: 0.5s;
   color: var(--black-color);
+}
+.search > div {
+  position: relative;
+}
+.search .autocom-box {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  background-color: var(--white-color);
+  border-radius: 0 0 10px 10px;
+  border-top: 4px solid var(--main-color);
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  overflow-y: scroll;
+  max-height: 120px;
+}
+
+.search .autocom-box a {
+  color: var(--black-color);
+  display: block;
+  padding: 8px 5px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.search .autocom-box a:hover {
+  background-color: var(--main-color);
+}
+.search .autocom-box::-webkit-scrollbar {
+  width: 4px;
+  background-color: var(--white-color);
+}
+.search .autocom-box::-webkit-scrollbar-track {
+  width: 4px;
+  background-color: var(--white-color);
+}
+
+.search .autocom-box::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+  height: 30%;
 }
 
 /**-------------------------------------------here---*/
@@ -946,8 +987,8 @@ footer {
 
   /*?----------------------------------------------------------navigator-----*/
   .items {
-    gap: 13px;
-    padding-left: 10px;
+    gap: 12px;
+    padding-left: 6px;
   }
   .items a {
     font-size: 0.8rem;
@@ -1154,26 +1195,70 @@ footer {
     width: 15px;
     height: 15px;
   }
-  /**-------------------------------------------here---*/
-  .search input {
+  .search > div {
     display: none;
   }
-  .menu > input {
-    display: block;
+  .mobile-search {
     position: absolute;
-    left: 0;
-    right: 0;
-    height: 0;
-    text-indent: 10px;
-    border-radius: 0 0 1rem 1rem;
     top: 100%;
-    color: var(--black-color);
+    left: 20px;
+    right: 20px;
+    height: 0%;
+    max-width: 460px;
+    background-color: #23601c86;
+    border-radius: 0 0 1rem 1rem;
     transition: 0.3s;
+    margin: 0 auto;
   }
-  .menu > input.sliding {
+  .mobile-search.sliding {
     height: 100%;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
       rgba(0, 0, 0, 0.05) 0px 5px 10px;
+  }
+
+  .mobile-search input {
+    font-size: 0.9rem;
+    display: block;
+    border-radius: 0 0 1rem 1rem;
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    text-indent: 10px;
+    color: var(--black-color);
+  }
+  .mobile-search .autocom-box {
+    width: 100%;
+    background-color: var(--white-color);
+    border-radius: 0 0 10px 10px;
+    border-top: 4px solid var(--main-color);
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+      rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+      rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    overflow-y: scroll;
+    max-height: 90px;
+  }
+  .mobile-search .autocom-box a {
+    color: var(--black-color);
+    display: block;
+    padding: 8px 5px;
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
+  .mobile-search .autocom-box a:hover {
+    background-color: var(--main-color);
+  }
+  .mobile-search .autocom-box::-webkit-scrollbar {
+    width: 4px;
+    background-color: var(--white-color);
+  }
+  .mobile-search .autocom-box::-webkit-scrollbar-track {
+    width: 4px;
+    background-color: var(--white-color);
+  }
+
+  .mobile-search .autocom-box::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+    height: 30%;
   }
   .hamburger-menu {
     display: block;
@@ -1469,4 +1554,13 @@ footer {
     font-size: 0.8rem;
     padding: 0.5rem 0.6rem;
   }
+}
+.hide {
+  display: none;
+}
+.search input.ChangeborderRadius {
+  border-radius: 10px 10px 0 0;
+}
+.mobile-search input.ChangeborderRadius {
+   border-radius: 0;
 }
