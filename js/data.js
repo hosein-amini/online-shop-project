@@ -51,7 +51,7 @@ let productsList = [
   {
     id: 6,
     image: "images/hoodie-4.png",
-    title: "Pullover Hoodie",
+    title: "uniq Hoodie",
     description: "Warm and comfortable, suitable for colder weather.",
     price: "90",
     category: "Hoodie",
@@ -213,7 +213,7 @@ let productsList = [
   {
     id: 23,
     image: "images/shoe-4.png",
-    title: "Boots",
+    title: " Nike Boots",
     description:
       "Sturdy and stylish, suitable for a range of casual and outdoor occasions.",
     price: "170",
@@ -233,7 +233,7 @@ let productsList = [
   {
     id: 25,
     image: "images/shoe-6.png",
-    title: "Boots",
+    title: "soccer shoes",
     description: "Elevate any outfit with this refined and polished accessory.",
     price: "280",
     category: "Shoe",
@@ -242,7 +242,7 @@ let productsList = [
   {
     id: 26,
     image: "images/shoe-7.png",
-    title: "Boots",
+    title: "Comfortable Boots",
     description: "Classic yet trendy, perfect for a range of occasions.",
     price: "220",
     category: "Shoe",
@@ -251,7 +251,7 @@ let productsList = [
   {
     id: 27,
     image: "images/shoe-8.png",
-    title: "Boots",
+    title: "sport Boots",
     description:
       "Make a statement with these elegant shoes at your next formal event.",
     price: "175",
@@ -261,7 +261,7 @@ let productsList = [
   {
     id: 28,
     image: "images/shoe-9.png",
-    title: "Boots",
+    title: "nike sport shoe",
     description:
       "Sleek and sturdy, ideal for outdoor adventures and relaxed weekends.",
     price: "250",
