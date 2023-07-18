@@ -75,8 +75,7 @@ const addingToCart = (productId, event) => {
   }
   localStorage.setItem("localProductsInCart", JSON.stringify(productsInCart));
   alertAdding();
-
-}
+};
 function generatingPageButtons(products) {
   let pages = Math.ceil(products.length / pageItems);
   let pageButtonsContainer = $.querySelector(".pagination");
@@ -96,7 +95,7 @@ function generatingPageButtons(products) {
   let firstPage = $.querySelector("#page1");
   firstPage.classList.add("active");
   changePage(1, products);
-};
+}
 const changePage = (pageNumber, products) => {
   let activeButton = $.querySelector(".active");
   let selectedButton = $.getElementById("page" + pageNumber);
@@ -284,17 +283,8 @@ const generatingSlider = () => {
   sliderWrapper.appendChild(slideFragment);
 };
 const scrollHandler = () => {
-  let items = $.querySelector(".items");
-  let logo = $.querySelector(".logo");
   let container = $.querySelector(".container");
   let scrollFiller = $.querySelector(".scroll-filler");
-  if (window.scrollY > 500) {
-    items.style.left = "-100%";
-    logo.style.left = "-100%";
-  } else {
-    items.style.left = "0%";
-    logo.style.left = "0%";
-  }
   let scrollFillerValue = Math.round(
     (container.clientWidth * window.scrollY * 100) /
       ($.body.clientHeight - window.innerHeight) /
@@ -332,9 +322,7 @@ const getFromLocalStorage = () => {
   } else {
     productsInCart = [];
   }
-
-
-}
+};
 function successfulAddedPosition() {
   let alertContainer = $.querySelector(".alert-container");
   let slide = $.querySelector(".slide");
@@ -345,7 +333,7 @@ function successfulAddedPosition() {
     alertContainer.style.top =
       Math.ceil(window.scrollY - slideHeight + menuHeight + 5) + "px";
   }
-};
+}
 if (isMobileSize) {
   searchButton.addEventListener("click", displayingMobileSearchField);
 } else {
