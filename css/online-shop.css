@@ -442,7 +442,7 @@ main.top-to-bottom {
   align-items: center;
   justify-content: center;
   color: var(--white-color);
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   text-align: center;
   font-weight: 900;
   padding: 10px;
@@ -1433,7 +1433,7 @@ footer {
     height: fit-content;
     display: block;
     color: var(--black-color);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     text-align: center;
     font-weight: 500;
     padding: 0;
