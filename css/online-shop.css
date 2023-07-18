@@ -21,7 +21,6 @@
   max-width: 1600px;
   margin: 0 auto;
   position: relative;
-  /* overflow-y: hidden; */
 }
 body::-webkit-scrollbar {
   width: 6px;
@@ -81,7 +80,6 @@ nav {
   justify-content: space-between;
   gap: 15px;
   padding: 3px 15px;
-  overflow: hidden;
 }
 .items {
   display: flex;
@@ -136,6 +134,8 @@ li:hover a {
   transition: 0.5s;
   color: var(--black-color);
 }
+
+/**-------------------------------------------here---*/
 .search .show {
   width: 100%;
   visibility: visible;
@@ -1154,6 +1154,7 @@ footer {
     width: 15px;
     height: 15px;
   }
+  /**-------------------------------------------here---*/
   .search input {
     display: none;
   }
