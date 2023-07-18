@@ -1,7 +1,8 @@
 let $ = document;
 let totalPriceContainer = $.querySelector(".total-price-container");
-let checkOutButton = $.querySelector(".total-price-container > button");
+let checkoutButton = $.querySelector(".total-price-container > button");
 let cancelButton = $.querySelector(".cancel");
+let confirmButton = $.querySelector(".confirm");
 let modalWrapper = $.querySelector(".login-alert-bg");
 let modal = $.querySelector(".login-alert");
 let productsInCart = [];
@@ -146,7 +147,8 @@ function openCloseModal() {
   modal.classList.toggle("changeModalSitu");
 }
 cancelButton.addEventListener("click", openCloseModal);
-checkOutButton.addEventListener("click", paying);
+confirmButton.addEventListener("click", openCloseModal);
+checkoutButton.addEventListener("click", paying);
 window.addEventListener("load", getFromLocalStorage);
 window.addEventListener("scroll", totalPricePosition);
 window.addEventListener("scroll", successfulPurchasePosition);
