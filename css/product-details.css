@@ -187,6 +187,9 @@ main .container .main-information {
   font-size: 2rem;
   padding: 0.4rem 1rem;
   background-color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .add-minus .plus {
   width: 50px;
