@@ -102,10 +102,22 @@ main .container .main-information {
   justify-content: center;
   width: 80%;
   max-width: 450px;
+  overflow: hidden;
+  border-radius: 4rem;
+  background-color: #fec82820;
+}
+.product-image-container:hover {
+  outline: 2px solid var(--main-color);
 }
 .product-image-container img {
   width: 100%;
+  padding: 2rem;
   aspect-ratio: 1.2/1;
+  transition: transform 0.5s;
+}
+.product-image-container img.zoom {
+  transition-delay: 0.5s;
+  transform: scale(1.8);
 }
 .product-details {
   display: flex;
