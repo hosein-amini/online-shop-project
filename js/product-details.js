@@ -1,9 +1,10 @@
-import { productsList ,alertAdding , $} from "./data.js";
+import { productsList, alertAdding, $ } from "./data.js";
 let confirmComment = $.querySelector(".confirm-comment");
+let productContainer = document.querySelector(".product-image-container");
+let productImg = null;
 let searchParams = new URLSearchParams(location.search);
 let searchParamsId = searchParams.get("id");
 let productsInCart = [];
-
 let selectedProduct = productsList.find(function (product) {
   return product.id == searchParamsId;
 });
@@ -22,7 +23,7 @@ function generatingProduct(product) {
 
   productImageContainer.insertAdjacentHTML(
     "beforeend",
-    `<img src="${product.image}" alt="${product.title}"/>`
+    `<img class="product-img" src="${product.image}" alt="${product.title}"/>`
   );
   productDetails.insertAdjacentHTML(
     "afterbegin",
@@ -68,6 +69,7 @@ function generatingProduct(product) {
 
   let pageTitle = $.querySelector("title");
   let pageImage = $.querySelector('link[rel="shortcut icon"]');
+  productImg = document.querySelector(".product-img");
   pageImage.href = product.image;
   pageTitle.innerHTML = `All Us Shop | ${product.title}`;
 }
@@ -148,10 +150,18 @@ function alertAddingPosition() {
     alertContainer.style.top = 54 + "px";
   }
 }
+function zoomIn(e) {
+  productImg.style.transformOrigin = `${e.offsetX}px ${e.offsetY}px`;
+  productImg.classList.add("zoom");
+}
+function zoomOut(e) {
+  productImg.classList.remove("zoom");
+}
 confirmComment.addEventListener("click", creatingComment);
+productContainer.addEventListener("mousemove", zoomIn);
+productContainer.addEventListener("mouseout", zoomOut);
 window.addEventListener("load", getFromLocalStorage);
 window.addEventListener("scroll", alertAddingPosition);
-
 
 window.plusProduct = plusProduct;
 window.minusProduct = minusProduct;
