@@ -107,7 +107,6 @@ li:hover .underline {
 li:hover a {
   color: var(--main-color);
 }
-
 .logo {
   position: relative;
   transition: 1s;
@@ -138,12 +137,15 @@ li:hover a {
 .search > div {
   position: relative;
 }
-.search .autocom-box {
+.search .autocom-box-contianer {
+  border-radius: 0 0 10px 10px;
+  overflow: hidden;
   position: absolute;
   top: 100%;
   width: 100%;
+}
+.search .autocom-box {
   background-color: var(--white-color);
-  border-radius: 0 0 10px 10px;
   border-top: 4px solid var(--main-color);
   box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
     rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
@@ -151,7 +153,6 @@ li:hover a {
   overflow-y: scroll;
   max-height: 120px;
 }
-
 .search .autocom-box a {
   color: var(--black-color);
   display: block;
@@ -170,7 +171,6 @@ li:hover a {
   width: 4px;
   background-color: var(--white-color);
 }
-
 .search .autocom-box::-webkit-scrollbar-thumb {
   background-color: var(--main-color);
   height: 30%;
@@ -204,7 +204,6 @@ li:hover a {
 .user-info-item span {
   font-size: 0.9rem;
 }
-
 .user-info-item .fa {
   padding: 10px;
   color: var(--main-color);
@@ -1558,5 +1557,5 @@ footer {
   border-radius: 10px 10px 0 0;
 }
 .mobile-search input.ChangeborderRadius {
-   border-radius: 0;
+  border-radius: 0;
 }
