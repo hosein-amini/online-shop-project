@@ -146,6 +146,7 @@ function openCloseModal() {
   modalWrapper.classList.toggle("showModal");
   modal.classList.toggle("changeModalSitu");
 }
+modalWrapper.addEventListener("click", openCloseModal);
 cancelButton.addEventListener("click", openCloseModal);
 confirmButton.addEventListener("click", openCloseModal);
 checkoutButton.addEventListener("click", paying);

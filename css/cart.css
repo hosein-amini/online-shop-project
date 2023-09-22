@@ -345,6 +345,7 @@ main.empty .empty-text span {
   backdrop-filter: blur(5px) brightness(70%);
   opacity: 0;
   visibility: hidden;
+  z-index: 9998;
   /**----------------------  */
   transition: 0.5s;
   /**----------------------  */
@@ -352,8 +353,9 @@ main.empty .empty-text span {
 .login-alert {
   position: absolute;
   top: -50%;
-  transform: translateY(-50%);
-  /* z-index: 9999; */
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 9999;
   width: 95%;
   max-width: 360px;
   text-align: center;
