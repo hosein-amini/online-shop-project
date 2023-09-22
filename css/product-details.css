@@ -89,7 +89,6 @@ nav {
 
 /*?----------------------------------------------------------main-----*/
 main .container .main-information {
-  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -170,41 +169,39 @@ main .container .main-information {
 .add-minus .minus {
   width: 50px;
   padding: 0.4rem 1rem;
-  background-color: var(--text-color);
+  background-color: #bfc2e1;
   border-radius: 50% 0 0 50%;
-  color: #ff0000;
+  color: var(--white-color);
   font-size: 2rem;
   transition: 0.4s;
   cursor: pointer;
 }
 .add-minus .minus:hover {
-  background-color: #ff0000;
-  color: var(--white-color);
+  background-color: var(--secondary-color);
+  color: var(--main-color);
 }
 .add-minus .product-number {
   width: 50px;
-
   font-size: 2rem;
   padding: 0.4rem 1rem;
-  background-color: var(--text-color);
+  background-color: #bfc2e1;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .add-minus .plus {
   width: 50px;
-
   padding: 0.4rem 1rem;
-  background-color: var(--text-color);
+  background-color: #bfc2e1;
   border-radius: 0 50% 50% 0;
-  color: #075514;
+  color: var(--white-color);
   font-size: 2rem;
   transition: 0.4s;
   cursor: pointer;
 }
 .add-minus .plus:hover {
-  background-color: #075514;
-  color: var(--white-color);
+  background-color: var(--secondary-color);
+  color: var(--main-color);
 }
 .buttons {
   width: 100%;
