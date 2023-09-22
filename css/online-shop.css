@@ -633,9 +633,7 @@ main.top-to-bottom {
   border-radius: 150px 0px 0px / 150px 0px 0px;
   transition: 0.7s;
 }
-.offer:hover .offer-image {
-  border-radius: 0 0 0 150px/ 0 0 0 150px;
-}
+
 .offer-description {
   width: 50%;
   height: 100%;
@@ -650,9 +648,7 @@ main.top-to-bottom {
     "Lucida Sans", Arial, sans-serif;
   letter-spacing: 4px;
 }
-.offer:hover .offer-description {
-  border-radius: 0 150px 0 0/ 0 150px 0 0;
-}
+
 .offer-description h4 {
   color: var(--main-color);
   font-size: 0.8rem;
