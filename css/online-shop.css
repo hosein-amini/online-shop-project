@@ -671,7 +671,7 @@ main.top-to-bottom {
 .offer-description a span {
   vertical-align: -6px;
   color: var(--black-color);
-  font-size: 2.2rem;
+  font-size: 2rem;
   position: relative;
   right: -2%;
   animation: small-move infinite alternate 1s linear;
