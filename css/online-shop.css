@@ -1261,6 +1261,12 @@ footer {
     text-indent: 10px;
     color: var(--black-color);
   }
+
+  .mobile-search .autocom-box-contianer {
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+    width: 100%;
+  }
   .mobile-search .autocom-box {
     width: 100%;
     background-color: var(--white-color);
@@ -1371,7 +1377,7 @@ footer {
     width: 100%;
     padding: 80px 5px 20px;
   }
-  
+
   .header-section {
     align-items: center;
     justify-content: center;
