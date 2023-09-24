@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo3.png" type="image/x-icon" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/swiper/swiper.min.css" />
     <link rel="stylesheet" href="css/online-shop.css" />
-    <link rel="shortcut icon" href="images/logo3.png" type="image/x-icon" />
+    <script src="js/swiper/swiper.min.js" defer></script>
     <script type="module" src="js/online-shop.js"></script>
     <title>ALL US Shop</title>
   </head>
@@ -74,15 +75,50 @@
           <div class="mobile-search">
             <input type="input" placeholder="search products ..." />
             <ul class="autocom-box hide">
-               <!--?----------------------------------------append desktop suggestions here-->
+              <!--?----------------------------------------append desktop suggestions here-->
             </ul>
           </div>
         </div>
       </div>
     </nav>
 
-    <div class="slider-wrapper">
-     <!--?----------------------------------------append sliders here-->
+    <div class="slider-bg-container">
+      <div class="slider-bg container">
+        <div class="header-section">
+          <div class="header-description">
+            <span class="header-title">All US Shop</span>
+            <h1 id="typeWriter"></h1>
+            <h3>
+              Browse through our wide selection of products and enjoy fast and
+              reliable shipping straight to your doorstep.
+            </h3>
+            <button class="header-shopping-button">
+              <span class="btn-text">Shop Now</span>
+            </button>
+          </div>
+          <div class="swiper mainSwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="./images/portrait/1.jpg" alt="model-photo" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/portrait/2.jpg" alt="model-photo" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/portrait/3.jpg" alt="model-photo" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/portrait/4.jpg" alt="model-photo" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/portrait/5.jpg" alt="model-photo" />
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+        <div class="bg-color"></div>
+      </div>
     </div>
 
     <div class="container">
@@ -190,8 +226,7 @@
                 type="email"
                 id="email"
                 placeholder="Enter your email"
-                autocomplete="off"
-              />
+                autocomplete="off" />
               <input type="submit" id="subscribe" value="Subscribe" />
             </form>
             <p>You will be able to unsubscribe at any time</p>
@@ -285,5 +320,6 @@
         </li>
       </ul>
     </div>
+    <!--?----------------------------------------append sliders here-->
   </body>
 </html>

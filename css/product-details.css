@@ -12,11 +12,12 @@
     "Lucida Sans", Arial, sans-serif;
 }
 :root {
-  --main-color: #feca28;
-  --secondary-color: #00063a;
+  --main-color: #f59e0b;
+  --secondary-color: #0d172a;
   --black-color: #000000;
   --white-color: #ffffff;
   --text-color: #b3a9a9;
+  --bg-color: #e1e1e7;
 }
 /*?----------------------------------------------------------menu-----*/
 nav {

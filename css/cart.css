@@ -12,14 +12,17 @@
     "Lucida Sans", Arial, sans-serif;
 }
 :root {
-  --main-color: #feca28;
-  /* --secondary-color: #504d4b; */
-  --secondary-color: #00063a;
+  --main-color: #f59e0b;
+  --secondary-color: #0d172a;
   --black-color: #000000;
   --white-color: #ffffff;
   --text-color: #b3a9a9;
+  --bg-color: #e1e1e7;
 }
 /*?----------------------------------------------------------menu-----*/
+body {
+  background-color: var(--bg-color);
+}
 nav {
   position: fixed;
   z-index: 999;
@@ -154,12 +157,11 @@ tbody tr td:nth-child(2) .plus-minus {
   display: flex;
   align-items: center;
   font-size: 1.1rem;
+  background-color: var(--white-color);
+  border-radius: 8px;
 }
 tbody tr td:nth-child(2) .minus {
   width: 30px;
-  border-top: 1px solid var(--text-color);
-  border-left: 1px solid var(--text-color);
-  border-bottom: 1px solid var(--text-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -169,13 +171,11 @@ tbody tr td:nth-child(2) .minus {
   padding: 5px 0;
 }
 tbody tr td:nth-child(2) .minus:hover {
-  background-color: #ff0000;
+  background-color: var(--secondary-color);
   color: var(--white-color);
 }
 tbody tr td:nth-child(2) .number {
   width: 30px;
-  border-top: 1px solid var(--text-color);
-  border-bottom: 1px solid var(--text-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -183,9 +183,6 @@ tbody tr td:nth-child(2) .number {
 }
 tbody tr td:nth-child(2) .plus {
   width: 30px;
-  border-top: 1px solid var(--text-color);
-  border-right: 1px solid var(--text-color);
-  border-bottom: 1px solid var(--text-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -195,7 +192,7 @@ tbody tr td:nth-child(2) .plus {
   padding: 5px 0;
 }
 tbody tr td:nth-child(2) .plus:hover {
-  background-color: #075514;
+  background-color: var(--secondary-color);
   color: var(--white-color);
 }
 tbody tr td:nth-child(2) .remove {
@@ -215,7 +212,7 @@ tbody tr td:nth-child(2) .remove:hover span {
   color: var(--black-color);
 }
 tbody tr td:nth-child(2) .remove:hover .fa {
-  color: #ff0000;
+  color: var(--main-color);
   animation: trash-shaker 0.5s alternate infinite linear;
   transform: rotate(-30deg);
   transform-origin: 50% 100%;
@@ -236,8 +233,11 @@ tbody tr td:last-child > div {
   margin: 0 auto;
   font-weight: 900;
   font-size: 1.1rem;
-  border: 3px solid var(--main-color);
   padding: 15px;
+  background-color: var(--white-color);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .total-price-container > div {
@@ -354,7 +354,7 @@ main.empty .empty-text span {
   position: absolute;
   top: -50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   z-index: 9999;
   width: 95%;
   max-width: 360px;
@@ -362,7 +362,7 @@ main.empty .empty-text span {
   padding: 20px;
   border-radius: 20px;
   background-color: var(--white-color);
-  transition: .8s;
+  transition: 0.8s;
 }
 .login-alert h3 {
   font-size: 1.5rem;
@@ -475,10 +475,10 @@ main.empty .empty-text span {
   display: none;
 }
 
-.showModal{
+.showModal {
   opacity: 1;
   visibility: visible;
 }
-.changeModalSitu{
+.changeModalSitu {
   top: 50%;
 }
