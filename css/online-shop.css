@@ -1367,9 +1367,11 @@ footer {
 @media screen and (max-width: 576px) {
   /*?----------------------------------------------------------slider-----*/
   .slider-bg-container {
+    height: 92vh;
     width: 100%;
     padding: 80px 5px 20px;
   }
+  
   .header-section {
     align-items: center;
     justify-content: center;
