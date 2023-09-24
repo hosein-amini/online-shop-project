@@ -11,37 +11,24 @@ let searchBox = $.querySelector(".search input");
 let suggestionsBox = $.querySelector(".search .autocom-box");
 let mobileSearchBox = $.querySelector(".mobile-search input");
 let mobileSuggestionsBox = $.querySelector(".mobile-search .autocom-box");
-
-let slideContainer = [
-  {
-    id: 1,
-    destination: "#",
-    image: "images/1.jpg",
-    description1: "Find whatever you want",
-    description2: "Anytime , Anywhere",
-  },
-  {
-    id: 2,
-    destination: "#",
-    image: "images/2.jpg",
-    description1: "don't think about money",
-    description2: "change your thinking",
-  },
-  {
-    id: 3,
-    destination: "#",
-    image: "images/3.jpg",
-    description1: "buy any thing in best quality",
-    description2: "it's your turn",
-  },
-  {
-    id: 4,
-    destination: "#",
-    image: "images/4.jpg",
-    description1: "The best choices come from within you",
-    description2: "be your best self",
-  },
+//! Type writer dependencies
+let typeText = "Anytime, anywhere, ";
+let typeVariableWords = [
+  "Shop with ease.",
+  "Find your favorites.",
+  "Browse and buy.",
 ];
+let typeSpeed = 100;
+let clearSpeed = 100;
+let endTextPauseTime = 1500;
+let startTextPauseTime = 300;
+let typeCounter = 0;
+let typeVariableWordsCounter = -1;
+let typeTextElem = document.querySelector("#typeWriter");
+let typeIndex = null;
+let typeSplittedWord = null;
+typeTextElem.innerHTML = typeText;
+//!-------------------------------------
 
 let productsInCart = [];
 let filteredProductsList = [];
@@ -56,6 +43,33 @@ let allCategoryItems = [
   "Jacket",
   "Hoodie",
 ];
+let swiper = new Swiper(".mainSwiper", {
+  speed: 800,
+  slidesPerView: 1,
+  spaceBetween: 0,
+  centeredSlides: true,
+  loop: true,
+  grabCursor: true,
+  followFinger: true,
+  effect: "cards",
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+  },
+  direction: "vertical",
+  pagination: {
+    el: ".swiper-pagination",
+    dynamicBullets: true,
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  breakpoints: {},
+});
+
+//!-------------------------------------functions
 
 const addingToCart = (productId, event) => {
   event.preventDefault();
@@ -274,27 +288,6 @@ const displayingMenu = () => {
     document.body.style.overflow = "";
   });
 };
-const generatingSlider = () => {
-  let sliderWrapper = $.querySelector(".slider-wrapper");
-  let slideFragment = new DocumentFragment();
-  slideContainer.forEach(function (selectedSlide) {
-    let slide = $.createElement("div");
-    slide.classList.add("slide", `slide${selectedSlide.id}`);
-    slide.style.backgroundImage = `url("${selectedSlide.image}")`;
-    slide.insertAdjacentHTML(
-      "beforeend",
-      `<div class="center-title">
-        <div>
-          <h1>${selectedSlide.description1}</h1>
-          <h1>${selectedSlide.description2}</h1>
-        </div>
-        <a href="#">Shop Now</a>
-       </div>`
-    );
-    slideFragment.appendChild(slide);
-  });
-  sliderWrapper.appendChild(slideFragment);
-};
 const scrollHandler = () => {
   let container = $.querySelector(".container");
   let scrollFiller = $.querySelector(".scroll-filler");
@@ -342,7 +335,8 @@ function successfulAddedPosition() {
   let alertContainer = $.querySelector(".alert-container");
   let slide = $.querySelector(".slide");
   let menu = $.querySelector(".menu");
-  let slideHeight = parseInt(getComputedStyle(slide).height);
+  // let slideHeight = parseInt(getComputedStyle(slide).height);
+  let slideHeight = 600;
   let menuHeight = parseInt(getComputedStyle(menu).height);
   if (window.scrollY >= slideHeight - menuHeight) {
     alertContainer.style.top =
@@ -442,14 +436,54 @@ const mobileSuggestionsBoxGenerator = (products) => {
   });
   mobileSuggestionsBox.append(mobileSuggestionsBoxFragment);
 };
-
+//! Type writer functions
+const addTextLetter = (typeCounter) => {
+  typeIndex = variableWordsAdder();
+  typeSplittedWord = typeVariableWords.at(typeIndex).split("");
+  let addWords = setInterval(() => {
+    if (typeCounter < typeSplittedWord.length) {
+      typeText += typeSplittedWord[typeCounter];
+      typeTextElem.innerHTML = typeText;
+    } else {
+      clearInterval(addWords);
+      setTimeout(() => {
+        clearTextLetter(typeCounter);
+      }, endTextPauseTime);
+    }
+    typeCounter++;
+  }, typeSpeed);
+};
+const clearTextLetter = (typeCounter) => {
+  let removeWords = setInterval(() => {
+    if (typeCounter !== 1) {
+      typeText = typeText.slice(0, -1);
+      typeTextElem.innerHTML = typeText;
+      typeCounter--;
+    } else {
+      typeCounter--;
+      clearInterval(removeWords);
+      setTimeout(() => {
+        addTextLetter(typeCounter);
+      }, startTextPauseTime);
+    }
+  }, clearSpeed);
+};
+const variableWordsAdder = () => {
+  if (typeVariableWordsCounter < typeVariableWords.length - 1) {
+    typeVariableWordsCounter++;
+  } else {
+    typeVariableWordsCounter = 0;
+  }
+  return typeVariableWordsCounter;
+};
+//!-------------------------------------
 if (isMobileSize) {
   searchButton.addEventListener("click", displayingMobileSearchField);
 } else {
   searchButton.addEventListener("click", displayingDesktopSearchField);
 }
 
-generatingSlider();
+addTextLetter(typeCounter);
 filteringProducts(allCategoryItems);
 categories.addEventListener("click", displayingCategories);
 hamburgerMenu.addEventListener("click", displayingMenu);

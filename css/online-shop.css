@@ -1,10 +1,10 @@
 :root {
-  --main-color: #feca28;
-  /* --secondary-color: #504d4b; */
-  --secondary-color: #00063a;
+  --main-color: #f59e0b;
+  --secondary-color: #0d172a;
   --black-color: #000000;
   --white-color: #ffffff;
   --text-color: #b3a9a9;
+  --bg-color: #e1e1e7;
 }
 * {
   padding: 0;
@@ -16,11 +16,17 @@
   text-decoration: none;
   user-select: none;
   color: var(--white-color);
+  font-family: inherit;
 }
 .container {
   max-width: 1600px;
   margin: 0 auto;
   position: relative;
+}
+body {
+  background-color: var(--bg-color);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 body::-webkit-scrollbar {
   width: 6px;
@@ -42,8 +48,7 @@ nav {
   left: 0;
   right: 0;
   background-color: var(--secondary-color);
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  box-shadow: 0 1px 5px -1px rgba(255, 255, 255, 0.192);
 }
 .scroll-wrapper {
   height: 4px;
@@ -80,6 +85,7 @@ nav {
   justify-content: space-between;
   gap: 15px;
   padding: 3px 15px;
+  height: 60px;
 }
 .items {
   display: flex;
@@ -214,142 +220,119 @@ li:hover a {
   opacity: 0.8;
 }
 /*?----------------------------------------------------------slider-----*/
-.slider-wrapper {
-  position: relative;
+.slider-bg-container {
   width: 100%;
   height: 100vh;
-  overflow: hidden;
+  padding: 80px 20px 20px;
 }
-.slide {
-  position: absolute;
-  z-index: 997;
+.slider-bg {
+  width: 100%;
   height: 100%;
+  background-color: var(--bg-color);
+  position: relative;
+}
+.bg-color {
+  background-color: var(--secondary-color);
+  position: absolute;
   width: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  animation: slider 20s infinite linear;
-  top: 0;
-  overflow: hidden;
+  height: 100%;
+  border-radius: 4rem;
+  z-index: 1;
 }
-.slide1 {
-  left: 0%;
-}
-.slide2 {
-  left: 100%;
-  animation-delay: -15s;
-}
-.slide3 {
-  left: 200%;
-  animation-delay: -10s;
-  background-position-y: -10%;
-}
-.slide4 {
-  left: 300%;
-  animation-delay: -5s;
-}
-@keyframes slider {
-  0%,
-  22% {
-    left: 0;
-    top: 0;
-  }
-  25% {
-    left: -100%;
-    top: 0;
-  }
-  40% {
-    left: -100%;
-    top: 100%;
-  }
-  41% {
-    left: 100%;
-    top: 100%;
-  }
-  97% {
-    left: 100%;
-    top: 0;
-  }
-  100% {
-    left: 0;
-    top: 0;
-  }
-}
-.slide .center-title {
-  height: 100vh;
+.header-section {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  flex-direction: column;
-  text-align: center;
-  padding-top: 80px;
-  font-size: 1.6rem;
-  backdrop-filter: blur(10px);
-  background-color: rgba(0, 0, 0, 0.3);
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  font-weight: 900;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 30px 0;
 }
-.slide .center-title h1 {
-  line-height: 80px;
-  letter-spacing: 5px;
-  position: relative;
-  /* top: 30px; */
-}
-.slide .center-title h1:first-child {
-  animation: changePosition1 2s;
-  left: 50%;
-  transform: translate(-50%);
-}
-.slide .center-title h1:last-child {
-  animation: changePosition2 2s;
-  right: 50%;
-  transform: translate(50%);
-}
+.header-description {
+  margin-left: 50px;
+  & .header-title {
+    background-color: var(--main-color);
+    filter: drop-shadow(2px 2px 5px rgba(255, 255, 255, 0.216));
+    margin-bottom: 40px;
+    display: inline-block;
+    color: var(--secondary-color);
+    padding: 10px 20px;
+    border-radius: 80% 20% 60% 40% / 60% 20% 80% 40%;
+    font-size: 1.2rem;
+  }
+  & h1 {
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(to right, #f59e0b, #ffffff);
+    font-size: 1.9rem;
+    font-weight: bold;
+  }
+  & h3 {
+    margin: 20px 0 40px;
+    font-weight: 100;
+    color: var(--text-color);
+    max-width: 500px;
+  }
 
-@keyframes changePosition1 {
-  from {
-    left: -50%;
-    transform: translate(-50%);
-  }
-  to {
-    left: 50%;
-    transform: translate(-50%);
+  & button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    position: relative;
+
+    & .btn-text {
+      padding: 12px 35px;
+      font-size: 20px;
+      color: #e0ffff;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      background: rgba(0, 73, 88, 0.05);
+      backdrop-filter: blur(15px);
+      cursor: pointer;
+      z-index: 1;
+      transition: 0.2s;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -5px;
+      width: 25%;
+      height: 10px;
+      background: var(--main-color);
+      border-radius: 10px;
+      transition: 0.5s;
+      box-shadow: 0 0 10px rgba(245, 159, 11, 0.5);
+    }
+    &:hover::before {
+      bottom: 0;
+      height: 60%;
+      width: 90%;
+      border-radius: 30px;
+      transition-delay: 0.5s;
+    }
   }
 }
-@keyframes changePosition2 {
-  from {
-    right: -50%;
-    transform: translate(50%);
-  }
-  to {
-    right: 50%;
-    transform: translate(50%);
-  }
+.swiper {
+  margin-right: 50px;
+  height: 80%;
+  aspect-ratio: 7/10;
 }
-.slide .center-title a {
+.swiper-slide {
+  border-radius: 3rem;
+
+}
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  border-radius: 3rem;
+}
+.swiper-pagination-bullet{
   background-color: var(--main-color);
-  color: var(--secondary-color);
-  padding: 15px 50px;
-  border-radius: 100px 0px / 100px 0px;
-  transition: 0.8s;
-  position: relative;
-  top: 0;
-  animation: changePosition3 2s;
-  font-weight: 900;
-}
-@keyframes changePosition3 {
-  from {
-    top: -30%;
-  }
-  to {
-    top: 0;
-  }
-}
-.slide .center-title a:hover {
-  border-radius: 0 100px / 0 100px;
-  background-color: var(--white-color);
-  color: var(--black-color);
 }
 
 /*?----------------------------------------------------------categories-----*/
@@ -459,6 +442,7 @@ main.top-to-bottom {
   margin: 0 auto;
   max-width: 300px;
   height: 100%;
+  background-color: var(--white-color);
 }
 .product-container:hover {
   transform: scale(1.01);
@@ -493,7 +477,6 @@ main.top-to-bottom {
 .product-container:hover .product-description {
   top: 0;
 }
-
 .product-title {
   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
     sans-serif;
@@ -503,7 +486,6 @@ main.top-to-bottom {
   font-weight: 500;
   line-height: 22px;
 }
-
 .product-details-bottom {
   display: flex;
   align-items: center;
@@ -523,6 +505,11 @@ main.top-to-bottom {
   transition: 0.5s;
   cursor: pointer;
   background-color: var(--main-color);
+  color: var(--white-color);
+  &:hover{
+    color: var(--black-color);
+
+  }
 }
 .add-to-cart:hover {
   background-color: var(--white-color);
@@ -591,7 +578,8 @@ main.top-to-bottom {
   transform: scale(1.03);
 }
 .hot-product h4 {
-  font-size: 1.2rem;
+  font-size: 1rem;
+  font-weight: normal;
   padding: 0 10px;
   text-align: center;
   color: var(--secondary-color);
@@ -628,7 +616,7 @@ main.top-to-bottom {
   background-image: url(../images/5.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: 50% 10%;
   border-radius: 150px 0px 0px / 150px 0px 0px;
   transition: 0.7s;
 }
@@ -636,7 +624,7 @@ main.top-to-bottom {
 .offer-description {
   width: 50%;
   height: 100%;
-  background-color: var(--black-color);
+  background-color: var(--secondary-color);
   padding: 70px 20px 0;
   border-radius: 0 0 150px / 0 0 150px;
   transition: 0.7s;
@@ -712,7 +700,6 @@ main.top-to-bottom {
   gap: 10px;
   width: 80%;
   margin: 0 auto;
-  /* flex-direction: column; */
 }
 #subscribe,
 #email {
@@ -937,13 +924,37 @@ footer {
     padding: 5px;
   }
   /*?----------------------------------------------------------slider-----*/
-  .slide .center-title {
-    font-size: 1.3rem;
+  .header-description {
+    margin-left: 30px;
+    & .header-title {
+      font-size: 1.1rem;
+    }
+    & h1 {
+      font-size: 1.5rem;
+    }
+    & h3 {
+      max-width: 500px;
+      font-size: .9rem;
+    }
+  
+    & button {
+  
+      & .btn-text {
+        font-size:1rem;
+      }
+     
+    }
   }
-  .slide .center-title a {
-    font-size: 1.4rem;
+  
+  .swiper {
+    margin-right: 30px;
+    height: 70%;
   }
-
+  
+  /**-------------------------------------------offer-----*/
+  .offer-image {
+    background-position: top;
+  }
   /*?----------------------------------------------------------footer-----*/
 
   .about-container {
@@ -979,7 +990,6 @@ footer {
   .scroll-wrapper {
     height: 2px;
   }
-
   /*?----------------------------------------------------------navigator-----*/
   .items {
     gap: 12px;
@@ -1019,20 +1029,21 @@ footer {
   }
 
   /*?----------------------------------------------------------slider-----*/
-  .slide .center-title {
-    padding-top: 80px;
-    font-size: 1rem;
+  .header-description {
+    & .header-title{
+      display: none;
+    }
+    & h1 {
+      height: 56px;
+    }
+    & h3 {
+      margin-top: 0;
+    }
   }
-  .slide .center-title h1 {
-    line-height: 70px;
-    letter-spacing: 3px;
+  .swiper {
+    height: 60%;
   }
-  .slide1 {
-    background-position-x: 80%;
-  }
-  .slide2 {
-    background-position-x: 15%;
-  }
+  
   /*?----------------------------------------------------------categories-----*/
   .categories {
     font-size: 1.2rem;
@@ -1166,23 +1177,54 @@ footer {
   }
 
   /*?----------------------------------------------------------slider-----*/
-  .slide .center-title {
-    font-size: 0.75rem;
+  .header-section {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
   }
-  .slide .center-title h1 {
-    line-height: 60px;
+  .header-description {
+    width: 100%;
+    margin:0;
+    & .header-title {
+      font-size: 1rem;
+    }
+    & h1 {
+      width: 100%;
+      font-size: 1.5rem;
+      height: 56px;
+      text-align: center;
+      margin: 30px 0  ;
+    }
+    & h3 {
+      font-size: .8rem;
+      width: 50%;
+      margin-left: 40px;
+    }
+    & button {
+      margin-top: -80px;
+      margin-left: auto;
+      margin-right: 40px;
+      
+      & .btn-text {
+        font-size:1rem;
+      }
+    }
   }
-  .slide .center-title a {
-    font-size: 1.1rem;
+  
+  .swiper {
+    height: 60%;
+    margin: 0;
+    max-width: 90%;
+    aspect-ratio: 8/10;
   }
+
+  /*?----------------------------------------------------------menu-----*/
   .logo {
     display: none;
   }
   .items {
     display: none;
   }
-
-  /*?----------------------------------------------------------menu-----*/
   .user-info-items span {
     display: none;
   }
@@ -1206,7 +1248,7 @@ footer {
     margin: 0 auto;
   }
   .mobile-search.sliding {
-    height: 100%;
+    height: 60%;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
       rgba(0, 0, 0, 0.05) 0px 5px 10px;
   }
@@ -1326,24 +1368,39 @@ footer {
 }
 @media screen and (max-width: 576px) {
   /*?----------------------------------------------------------slider-----*/
-  .slide .center-title {
-    font-size: 0.5rem;
+  
+  .header-section {
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-top: 20px;
   }
-  .slide .center-title h1 {
-    line-height: 50px;
-    letter-spacing: 1px;
+  .header-description {
+    width: 100%;
+    margin:0;
+    & h1 {
+      font-size: 1.2rem;
+      text-align: center;
+      padding: 0 10px;
+      margin-bottom: 0;
+    }
+    & h3 {
+      font-size: .8rem;
+      text-align: center;
+      width: 80%;
+      margin: 0 auto 20px;
+    }
+    & button {
+      margin:0 auto;
+      & .btn-text {
+        font-size:.8rem;
+      }
+    }
   }
-  .slide .center-title a {
-    font-size: 0.9rem;
-  }
-  .slide1 {
-    background-position-x: 72%;
-  }
-  .slide2 {
-    background-position-x: 25%;
-  }
-  .slide3 {
-    background-position-x: 40%;
+  .swiper {
+    height: 60%;
+    margin: 0;
+    aspect-ratio: 8/10;
   }
 
   /*?---------------------------------------------------------hot products-----*/
@@ -1356,7 +1413,6 @@ footer {
     height: 140px;
     margin: 5px 5px;
   }
-
   .hot-product h4 {
     font-size: 0.6rem;
     padding: 0 5px;
@@ -1369,7 +1425,6 @@ footer {
   .hot-products::-webkit-scrollbar {
     height: 2px;
   }
-
   .hot-products::-webkit-scrollbar-track {
     height: 2px;
   }
@@ -1383,11 +1438,10 @@ footer {
     height: 200px;
     border-radius: 0 0 0 150px/ 0 0 0 150px;
   }
-
   .offer-description {
     height: 200px;
     width: 100%;
-    padding: 20px 20px 0;
+    padding: 20px 30px 0;
     border-radius: 0 150px 0 0/ 0 150px 0 0;
   }
   .offer-description * {
