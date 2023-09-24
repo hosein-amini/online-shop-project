@@ -249,6 +249,7 @@ li:hover a {
   justify-content: space-between;
   gap: 20px;
   padding: 30px 0;
+  overflow: hidden;
 }
 .header-description {
   margin-left: 50px;
@@ -320,18 +321,18 @@ li:hover a {
 .swiper {
   margin-right: 50px;
   height: 80%;
+  max-height: 800px;
   aspect-ratio: 7/10;
 }
 .swiper-slide {
   border-radius: 3rem;
-
 }
 .swiper-slide img {
   width: 100%;
   height: 100%;
   border-radius: 3rem;
 }
-.swiper-pagination-bullet{
+.swiper-pagination-bullet {
   background-color: var(--main-color);
 }
 
@@ -506,9 +507,8 @@ main.top-to-bottom {
   cursor: pointer;
   background-color: var(--main-color);
   color: var(--white-color);
-  &:hover{
+  &:hover {
     color: var(--black-color);
-
   }
 }
 .add-to-cart:hover {
@@ -934,23 +934,21 @@ footer {
     }
     & h3 {
       max-width: 500px;
-      font-size: .9rem;
+      font-size: 0.9rem;
     }
-  
+
     & button {
-  
       & .btn-text {
-        font-size:1rem;
+        font-size: 1rem;
       }
-     
     }
   }
-  
+
   .swiper {
     margin-right: 30px;
     height: 70%;
   }
-  
+
   /**-------------------------------------------offer-----*/
   .offer-image {
     background-position: top;
@@ -1030,7 +1028,7 @@ footer {
 
   /*?----------------------------------------------------------slider-----*/
   .header-description {
-    & .header-title{
+    & .header-title {
       display: none;
     }
     & h1 {
@@ -1043,7 +1041,7 @@ footer {
   .swiper {
     height: 60%;
   }
-  
+
   /*?----------------------------------------------------------categories-----*/
   .categories {
     font-size: 1.2rem;
@@ -1184,7 +1182,7 @@ footer {
   }
   .header-description {
     width: 100%;
-    margin:0;
+    margin: 0;
     & .header-title {
       font-size: 1rem;
     }
@@ -1193,10 +1191,10 @@ footer {
       font-size: 1.5rem;
       height: 56px;
       text-align: center;
-      margin: 30px 0  ;
+      margin: 30px 0;
     }
     & h3 {
-      font-size: .8rem;
+      font-size: 0.8rem;
       width: 50%;
       margin-left: 40px;
     }
@@ -1204,13 +1202,13 @@ footer {
       margin-top: -80px;
       margin-left: auto;
       margin-right: 40px;
-      
+
       & .btn-text {
-        font-size:1rem;
+        font-size: 1rem;
       }
     }
   }
-  
+
   .swiper {
     height: 60%;
     margin: 0;
@@ -1368,16 +1366,22 @@ footer {
 }
 @media screen and (max-width: 576px) {
   /*?----------------------------------------------------------slider-----*/
-  
+  .slider-bg-container {
+    width: 100%;
+    padding: 80px 5px 20px;
+  }
   .header-section {
     align-items: center;
-    justify-content: space-between;
-    flex-direction: column;
+    justify-content: center;
+    /* flex-direction: column; */
     padding-top: 20px;
+  }
+  .bg-color {
+    border-radius: 2rem;
   }
   .header-description {
     width: 100%;
-    margin:0;
+    margin: 0;
     & h1 {
       font-size: 1.2rem;
       text-align: center;
@@ -1385,15 +1389,26 @@ footer {
       margin-bottom: 0;
     }
     & h3 {
-      font-size: .8rem;
+      font-size: 0.8rem;
       text-align: center;
       width: 80%;
       margin: 0 auto 20px;
     }
     & button {
-      margin:0 auto;
+      width: 60%;
+      margin: 0 auto;
+      &::after {
+        content: none;
+      }
+      &::before {
+        content: none;
+      }
       & .btn-text {
-        font-size:.8rem;
+        background-color: var(--main-color);
+        width: 100%;
+        font-size: 0.8rem;
+        color: var(--black-color);
+        font-weight: bold;
       }
     }
   }
