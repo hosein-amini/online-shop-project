@@ -814,7 +814,6 @@ footer {
 .shop-details ul li:not(li:first-child):hover {
   color: var(--main-color);
 }
-
 .copyright {
   display: flex;
   align-items: center;
