@@ -2,6 +2,9 @@ import { productsList, alertAdding, $ } from "./data.js";
 let searchButton = $.querySelector(".search img");
 let categories = $.querySelector(".categories");
 let hamburgerMenu = $.querySelector(".hamburger-menu");
+let up = $.querySelector(".chevron-up");
+let emailContainer = $.querySelector(".email-container");
+let headerShoppingButton = $.querySelector(".header-shopping-button");
 let isMobileSize = window.innerWidth <= 768;
 let prevMobileSize = isMobileSize;
 let isMobileSizeProduct = window.innerWidth <= 576;
@@ -297,6 +300,18 @@ const scrollHandler = () => {
       container.clientWidth
   );
   scrollFiller.style.width = scrollFillerValue + "%";
+
+  if (window.scrollY >= emailContainer.offsetTop) {
+    up.classList.add("active");
+  } else {
+    up.classList.remove("active");
+  }
+};
+const moveUp = () => {
+  window.scrollTo(0, 0);
+};
+const moveToProducts = () => {
+  categories.scrollIntoView();
 };
 const resizeHandler = () => {
   isMobileSize = window.matchMedia("(max-width : 768px)").matches;
@@ -333,14 +348,12 @@ const getFromLocalStorage = () => {
 };
 function successfulAddedPosition() {
   let alertContainer = $.querySelector(".alert-container");
-  let slide = $.querySelector(".slide");
   let menu = $.querySelector(".menu");
-  // let slideHeight = parseInt(getComputedStyle(slide).height);
-  let slideHeight = 600;
+  let slideHeight = window.innerHeight;
   let menuHeight = parseInt(getComputedStyle(menu).height);
   if (window.scrollY >= slideHeight - menuHeight) {
     alertContainer.style.top =
-      Math.ceil(window.scrollY - slideHeight + menuHeight + 5) + "px";
+      Math.ceil(window.scrollY - slideHeight + menuHeight + 15) + "px";
   }
 }
 const searching = () => {
@@ -389,7 +402,6 @@ const suggestionsBoxGenerator = (products) => {
   });
   suggestionsBox.append(suggestionsBoxFragment);
 };
-
 const mobileSearching = () => {
   mobileSearchBox.classList.add("ChangeborderRadius");
   let searchValue = mobileSearchBox.value.toLowerCase();
@@ -487,6 +499,8 @@ addTextLetter(typeCounter);
 filteringProducts(allCategoryItems);
 categories.addEventListener("click", displayingCategories);
 hamburgerMenu.addEventListener("click", displayingMenu);
+up.addEventListener("click", moveUp);
+headerShoppingButton.addEventListener("click", moveToProducts);
 searchBox.addEventListener("input", searching);
 mobileSearchBox.addEventListener("input", mobileSearching);
 window.addEventListener("scroll", scrollHandler);

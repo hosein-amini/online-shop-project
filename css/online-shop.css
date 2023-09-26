@@ -17,6 +17,7 @@
   user-select: none;
   color: var(--white-color);
   font-family: inherit;
+  scroll-behavior: smooth;
 }
 .container {
   max-width: 1600px;
@@ -36,7 +37,6 @@ body::-webkit-scrollbar-track {
   width: 6px;
   background-color: var(--secondary-color);
 }
-
 body::-webkit-scrollbar-thumb {
   background-color: var(--main-color);
   height: 20%;
@@ -253,71 +253,72 @@ li:hover a {
 }
 .header-description {
   margin-left: 50px;
-  & .header-title {
-    background-color: var(--main-color);
-    filter: drop-shadow(2px 2px 5px rgba(255, 255, 255, 0.216));
-    margin-bottom: 40px;
-    display: inline-block;
-    color: var(--secondary-color);
-    padding: 10px 20px;
-    border-radius: 80% 20% 60% 40% / 60% 20% 80% 40%;
-    font-size: 1.2rem;
-  }
-  & h1 {
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    background-image: linear-gradient(to right, #f59e0b, #ffffff);
-    font-size: 1.9rem;
-    font-weight: bold;
-  }
-  & h3 {
-    margin: 20px 0 40px;
-    font-weight: 100;
-    color: var(--text-color);
-    max-width: 500px;
-  }
-
-  & button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-    position: relative;
-
-    & .btn-text {
-      padding: 12px 35px;
-      font-size: 20px;
-      color: #e0ffff;
-      border: 2px solid rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      background: rgba(0, 73, 88, 0.05);
-      backdrop-filter: blur(15px);
-      cursor: pointer;
-      z-index: 1;
-      transition: 0.2s;
-    }
-    &::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: -5px;
-      width: 25%;
-      height: 10px;
-      background: var(--main-color);
-      border-radius: 10px;
-      transition: 0.5s;
-      box-shadow: 0 0 10px rgba(245, 159, 11, 0.5);
-    }
-    &:hover::before {
-      bottom: 0;
-      height: 60%;
-      width: 90%;
-      border-radius: 30px;
-      transition-delay: 0.5s;
-    }
-  }
 }
+.header-description .header-title {
+  background-color: var(--main-color);
+  filter: drop-shadow(2px 2px 5px rgba(255, 255, 255, 0.216));
+  margin-bottom: 40px;
+  display: inline-block;
+  color: var(--secondary-color);
+  padding: 10px 20px;
+  border-radius: 80% 20% 60% 40% / 60% 20% 80% 40%;
+  font-size: 1.2rem;
+}
+.header-description h1 {
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(to right, #f59e0b, #ffffff);
+  font-size: 1.9rem;
+  font-weight: bold;
+}
+.header-description h3 {
+  margin: 20px 0 40px;
+  font-weight: 100;
+  color: var(--text-color);
+  max-width: 500px;
+}
+
+.header-description button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  position: relative;
+}
+
+.header-description button .btn-text {
+  padding: 12px 35px;
+  font-size: 20px;
+  color: #e0ffff;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  background: rgba(0, 73, 88, 0.05);
+  backdrop-filter: blur(15px);
+  cursor: pointer;
+  z-index: 1;
+  transition: 0.2s;
+}
+.header-description button::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -5px;
+  width: 25%;
+  height: 10px;
+  background: var(--main-color);
+  border-radius: 10px;
+  transition: 0.5s;
+  box-shadow: 0 0 10px rgba(245, 159, 11, 0.5);
+}
+.header-description button:hover::before {
+  bottom: 0;
+  height: 60%;
+  width: 90%;
+  border-radius: 30px;
+  transition-delay: 0.5s;
+}
+
 .swiper {
   margin-right: 50px;
   height: 80%;
@@ -507,11 +508,9 @@ main.top-to-bottom {
   cursor: pointer;
   background-color: var(--main-color);
   color: var(--white-color);
-  &:hover {
-    color: var(--black-color);
-  }
 }
 .add-to-cart:hover {
+  color: var(--black-color);
   background-color: var(--white-color);
 }
 /**-------------------------------------------pages-----*/
@@ -850,7 +849,7 @@ footer {
 }
 .alert-container {
   position: absolute;
-  left: 0;
+  left: 10px;
   top: 5px;
   display: flex;
   align-items: center;
@@ -878,7 +877,6 @@ footer {
   color: var(--white-color);
   font-size: 35px;
 }
-
 @keyframes move-left {
   0% {
     left: -300px;
@@ -890,6 +888,37 @@ footer {
     left: 0;
   }
 }
+
+.chevron-up {
+  left: -100px;
+  bottom: 10px;
+  position: fixed;
+  background-color: rgb(245, 158, 11, 0.4);
+  padding: 10px;
+  border-radius: 1000px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: left 0.8s ease, background-color 0.2s;
+  box-shadow: rgba(245, 158, 11, 0.25) 0px 50px 100px -20px,
+    rgba(245, 158, 11, 0.3) 0px 30px 60px -30px,
+    rgba(245, 158, 11, 0.35) 0px -2px 6px 0px inset;
+}
+.chevron-up.active {
+  left: 10px;
+  bottom: 10px;
+}
+.chevron-up:hover {
+  background-color: var(--main-color);
+}
+.chevron-up svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.chevron-up-icon {
+  stroke: var(--black-color);
+}
+
 /*!------------------------------------------------------------media queries------*/
 
 @media screen and (max-width: 1200px) {
@@ -926,29 +955,25 @@ footer {
   /*?----------------------------------------------------------slider-----*/
   .header-description {
     margin-left: 30px;
-    & .header-title {
-      font-size: 1.1rem;
-    }
-    & h1 {
-      font-size: 1.5rem;
-    }
-    & h3 {
-      max-width: 500px;
-      font-size: 0.9rem;
-    }
-
-    & button {
-      & .btn-text {
-        font-size: 1rem;
-      }
-    }
+  }
+  .header-description .header-title {
+    font-size: 1.1rem;
+  }
+  .header-description h1 {
+    font-size: 1.5rem;
+  }
+  .header-description h3 {
+    max-width: 500px;
+    font-size: 0.9rem;
   }
 
+  .header-description button .btn-text {
+    font-size: 1rem;
+  }
   .swiper {
     margin-right: 30px;
     height: 70%;
   }
-
   /**-------------------------------------------offer-----*/
   .offer-image {
     background-position: top;
@@ -1027,16 +1052,14 @@ footer {
   }
 
   /*?----------------------------------------------------------slider-----*/
-  .header-description {
-    & .header-title {
-      display: none;
-    }
-    & h1 {
-      height: 56px;
-    }
-    & h3 {
-      margin-top: 0;
-    }
+  .header-description .header-title {
+    display: none;
+  }
+  .header-description h1 {
+    height: 56px;
+  }
+  .header-description h3 {
+    margin-top: 0;
   }
   .swiper {
     height: 60%;
@@ -1183,39 +1206,36 @@ footer {
   .header-description {
     width: 100%;
     margin: 0;
-    & .header-title {
-      font-size: 1rem;
-    }
-    & h1 {
-      width: 100%;
-      font-size: 1.5rem;
-      height: 56px;
-      text-align: center;
-      margin: 30px 0;
-    }
-    & h3 {
-      font-size: 0.8rem;
-      width: 50%;
-      margin-left: 40px;
-    }
-    & button {
-      margin-top: -80px;
-      margin-left: auto;
-      margin-right: 40px;
-
-      & .btn-text {
-        font-size: 1rem;
-      }
-    }
   }
-
+  .header-description .header-title {
+    font-size: 1rem;
+  }
+  .header-description h1 {
+    width: 100%;
+    font-size: 1.5rem;
+    height: 56px;
+    text-align: center;
+    margin: 30px 0;
+  }
+  .header-description h3 {
+    font-size: 0.8rem;
+    width: 50%;
+    margin-left: 40px;
+  }
+  .header-description button {
+    margin-top: -80px;
+    margin-left: auto;
+    margin-right: 40px;
+  }
+  .header-description button .btn-text {
+    font-size: 1rem;
+  }
   .swiper {
     height: 60%;
     margin: 0;
     max-width: 90%;
     aspect-ratio: 8/10;
   }
-
   /*?----------------------------------------------------------menu-----*/
   .logo {
     display: none;
@@ -1390,35 +1410,36 @@ footer {
   .header-description {
     width: 100%;
     margin: 0;
-    & h1 {
-      font-size: 1.2rem;
-      text-align: center;
-      padding: 0 10px;
-      margin-bottom: 0;
-    }
-    & h3 {
-      font-size: 0.8rem;
-      text-align: center;
-      width: 80%;
-      margin: 0 auto 20px;
-    }
-    & button {
-      width: 60%;
-      margin: 0 auto;
-      &::after {
-        content: none;
-      }
-      &::before {
-        content: none;
-      }
-      & .btn-text {
-        background-color: var(--main-color);
-        width: 100%;
-        font-size: 0.8rem;
-        color: var(--black-color);
-        font-weight: bold;
-      }
-    }
+  }
+
+  .header-description h1 {
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 0 10px;
+    margin-bottom: 0;
+  }
+  .header-description h3 {
+    font-size: 0.8rem;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto 20px;
+  }
+  .header-description button {
+    width: 60%;
+    margin: 0 auto;
+  }
+  .header-description button::after {
+    content: none;
+  }
+  .header-description button::before {
+    content: none;
+  }
+  .header-description button .btn-text {
+    background-color: var(--main-color);
+    width: 100%;
+    font-size: 0.8rem;
+    color: var(--black-color);
+    font-weight: bold;
   }
   .swiper {
     height: 60%;
@@ -1628,6 +1649,9 @@ footer {
   }
 }
 .hide {
+  display: none;
+}
+.svg-none {
   display: none;
 }
 .search input.ChangeborderRadius {
