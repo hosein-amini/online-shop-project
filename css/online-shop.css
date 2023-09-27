@@ -848,8 +848,8 @@ footer {
 }
 
 .chevron-up {
-  left: -100px;
-  bottom: 10px;
+  left: 10px;
+  bottom: -100px;
   position: fixed;
   background-color: rgb(245, 158, 11, 0.4);
   padding: 10px;
@@ -857,7 +857,7 @@ footer {
   cursor: pointer;
   display: grid;
   place-items: center;
-  transition: left 0.8s ease, background-color 0.2s;
+  transition: bottom 0.8s ease, background-color 0.2s;
   box-shadow: rgba(245, 158, 11, 0.25) 0px 50px 100px -20px,
     rgba(245, 158, 11, 0.3) 0px 30px 60px -30px,
     rgba(245, 158, 11, 0.35) 0px -2px 6px 0px inset;
