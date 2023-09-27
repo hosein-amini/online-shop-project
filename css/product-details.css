@@ -41,6 +41,7 @@ nav {
   gap: 15px;
   padding: 3px 15px;
   overflow: hidden;
+  height: 60px;
 }
 .home > .fa-home {
   color: var(--main-color);
@@ -48,7 +49,6 @@ nav {
   opacity: 1;
   cursor: pointer;
 }
-
 .main-title {
   font-size: 1.3rem;
   color: var(--white-color);
@@ -68,14 +68,12 @@ nav {
 .user-info-item span {
   font-size: 0.9rem;
 }
-
 .user-info-item .fa {
   margin: 10px;
   color: var(--main-color);
   font-size: 25px;
   opacity: 1;
 }
-
 .user-info-items span {
   display: none;
   color: var(--white-color);
@@ -83,7 +81,6 @@ nav {
 .user-info-item:hover {
   opacity: 0.8;
 }
-
 .fa:hover {
   opacity: 0.8;
 }
@@ -94,7 +91,7 @@ main .container .main-information {
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-  padding: 60px 20px 0;
+  padding: 80px 20px 0;
   gap: 20px;
 }
 .product-image-container {
@@ -364,67 +361,8 @@ main .container .main-information {
   border-top: 1px solid var(--text-color);
   padding-top: 10px;
 }
-/*?-----------------  */
-/* 
-.successful-added i.fa {
-} */
-/*?-----------------  */
-.alert-container {
-  position: fixed;
-  left: 0;
-  top: 54px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-direction: column;
-}
-.successful-added {
-  position: relative;
-  background-color: #08be27;
-  left: -300px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-  gap: 20px;
-  animation: move-left 1.5s linear alternate 2;
-}
-.successful-added span {
-  color: var(--white-color);
-  font-weight: 900;
-  font-size: 1rem;
-}
-.successful-added i.fa {
-  color: var(--white-color);
-  font-size: 20px;
-}
 
-@keyframes move-left {
-  0% {
-    left: -300px;
-  }
-  40% {
-    left: 0;
-  }
-  100% {
-    left: 0;
-  }
-}
 @media screen and (min-width: 768px) {
-  .successful-added i.fa {
-    font-size: 35px;
-  }
-  .successful-added {
-    padding: 10px 15px;
-    gap: 25px;
-  }
-  .successful-added span {
-    font-size: 1.2rem;
-  }
-  .alert-container {
-    position: absolute;
-  }
   .user-info-items span {
     display: initial;
   }

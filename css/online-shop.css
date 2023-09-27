@@ -846,47 +846,6 @@ footer {
 .copyright i:hover {
   color: var(--main-color);
 }
-.alert-container {
-  position: absolute;
-  left: 10px;
-  top: 5px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-direction: column;
-}
-.successful-added {
-  position: relative;
-  background-color: #08be27;
-  left: 0;
-  padding: 10px 15px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 25px;
-  animation: move-left 1.5s linear alternate 2;
-}
-.successful-added span {
-  color: var(--white-color);
-  font-weight: 900;
-  font-size: 1.2rem;
-}
-.successful-added i.fa {
-  color: var(--white-color);
-  font-size: 35px;
-}
-@keyframes move-left {
-  0% {
-    left: -300px;
-  }
-  40% {
-    left: 0;
-  }
-  100% {
-    left: 0;
-  }
-}
 
 .chevron-up {
   left: -100px;

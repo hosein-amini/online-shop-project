@@ -138,18 +138,6 @@ function getFromLocalStorage() {
   }
   generatingProduct(selectedProduct);
 }
-function alertAddingPosition() {
-  let alertContainer = $.querySelector(".alert-container");
-  if (window.innerWidth >= 768) {
-    if (window.scrollY >= 1) {
-      alertContainer.style.top = Math.ceil(window.scrollY + 54) + "px";
-    } else {
-      alertContainer.style.top = 54 + "px";
-    }
-  } else {
-    alertContainer.style.top = 54 + "px";
-  }
-}
 function zoomIn(e) {
   productImg.style.transformOrigin = `${e.offsetX}px ${e.offsetY}px`;
   productImg.classList.add("zoom");
@@ -161,7 +149,6 @@ confirmComment.addEventListener("click", creatingComment);
 productContainer.addEventListener("mousemove", zoomIn);
 productContainer.addEventListener("mouseout", zoomOut);
 window.addEventListener("load", getFromLocalStorage);
-window.addEventListener("scroll", alertAddingPosition);
 
 window.plusProduct = plusProduct;
 window.minusProduct = minusProduct;

@@ -346,16 +346,6 @@ const getFromLocalStorage = () => {
     productsInCart = [];
   }
 };
-function successfulAddedPosition() {
-  let alertContainer = $.querySelector(".alert-container");
-  let menu = $.querySelector(".menu");
-  let slideHeight = window.innerHeight;
-  let menuHeight = parseInt(getComputedStyle(menu).height);
-  if (window.scrollY >= slideHeight - menuHeight) {
-    alertContainer.style.top =
-      Math.ceil(window.scrollY - slideHeight + menuHeight + 15) + "px";
-  }
-}
 const searching = () => {
   searchBox.classList.add("ChangeborderRadius");
   let searchValue = searchBox.value.toLowerCase();
@@ -506,7 +496,6 @@ mobileSearchBox.addEventListener("input", mobileSearching);
 window.addEventListener("scroll", scrollHandler);
 window.addEventListener("resize", resizeHandler);
 window.addEventListener("load", getFromLocalStorage);
-window.addEventListener("scroll", successfulAddedPosition);
 
 window.addingToCart = addingToCart;
 window.selectingSuggestion = selectingSuggestion;
