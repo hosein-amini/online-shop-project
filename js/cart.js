@@ -8,11 +8,7 @@ let modal = $.querySelector(".login-alert");
 let productsInCart = [];
 
 function totalPricePosition() {
-  if (window.scrollY >= 9) {
-    totalPriceContainer.style.top = Math.ceil(window.scrollY + 60) + "px";
-  } else {
-    totalPriceContainer.style.top = 60 + "px";
-  }
+  totalPriceContainer.style.top = window.scrollY + 80 + "px";
 }
 function getFromLocalStorage() {
   let localProductsInCart;
@@ -119,37 +115,38 @@ function removeProduct(productId) {
 }
 function paying() {
   if ($.cookie) {
-    let purchasedComplete = $.querySelector(".successful-purchase");
-    purchasedComplete.classList.add("confirm");
-    productsInCart = [];
-    localStorage.setItem("localProductsInCart", JSON.stringify(productsInCart));
-    setTimeout(() => {
-      location.reload();
-    }, 3000);
+    Swal.fire({
+      icon: "success",
+      title: "📦 Order Placed! 🎉",
+      html: `<h4>Order ID:<span class="order-id">#5729401</span></h4><p class="order-description">We're getting everything ready to ship your items. You'll receive an email with the order details soon. If you have any questions, let us know! 😊</p>`,
+      timer: 10000,
+      timerProgressBar: true,
+      willClose: () => {
+        productsInCart = [];
+        localStorage.setItem(
+          "localProductsInCart",
+          JSON.stringify(productsInCart)
+        );
+        location.reload();
+      },
+    });
   } else {
-    openCloseModal();
+    Swal.fire({
+      title: "you have to login first",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "OK , i'll do it",
+      cancelButtonText: "later",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        location.assign("./login.html");
+      }
+    });
   }
+  let confirmButton = $.querySelector("button.swal2-confirm.swal2-styled");
+  confirmButton.blur();
 }
-function successfulPurchasePosition() {
-  let successfulPurchase = $.querySelector(".successful-purchase");
-  if (window.innerWidth >= 768) {
-    if (window.scrollY >= 1) {
-      successfulPurchase.style.top = Math.ceil(window.scrollY + 54) + "px";
-    } else {
-      successfulPurchase.style.top = 54 + "px";
-    }
-  } else {
-    successfulPurchase.style.top = 54 + "px";
-  }
-}
-function openCloseModal() {
-  modalWrapper.classList.toggle("showModal");
-  modal.classList.toggle("changeModalSitu");
-}
-modalWrapper.addEventListener("click", openCloseModal);
-cancelButton.addEventListener("click", openCloseModal);
-confirmButton.addEventListener("click", openCloseModal);
+
 checkoutButton.addEventListener("click", paying);
 window.addEventListener("load", getFromLocalStorage);
 window.addEventListener("scroll", totalPricePosition);
-window.addEventListener("scroll", successfulPurchasePosition);
