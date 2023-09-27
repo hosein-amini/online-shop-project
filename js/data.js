@@ -270,22 +270,12 @@ let productsList = [
   },
 ];
 function alertAdding() {
-  let alertContainer = $.querySelector(".alert-container");
-  alertContainer.insertAdjacentHTML(
-    "beforeend",
-    `<div class="successful-added">
-      <span>added successfully</span>
-      <i class="fa fa-angellist"></i>
-     </div>`
-  );
-  
-  let successfulAdded = $.querySelectorAll(".successful-added");
-
-  successfulAdded.forEach(function (alert) {
-    alert.addEventListener("animationend", function () {
-      this.remove()
-      // event.target.remove();
-    });
+  iziToast.success({
+    message: "Successfully added to cart",
+    position: "topLeft",
+    timeout: 3000,
+    transitionIn: "flipInX",
+    transitionOut: "flipOutX",
   });
 }
-export { productsList , alertAdding , $};
+export { productsList, alertAdding, $ };
