@@ -5,7 +5,8 @@
 ## 🧬 technologies
 - <img alt="html"  src="https://skillicons.dev/icons?i=html" width="20" height="20" align="center" /> HTML
 - <img alt="css"  src="https://skillicons.dev/icons?i=css" width="20" height="20" align="center" /> CSS
-- <img alt="js"  src="https://skillicons.dev/icons?i=js" width="20" height="20" align="center" /> JavaScripts
+- <img alt="js"  src="https://skillicons.dev/icons?i=js" width="20" height="20" align="center" /> JavaScript
+- 🧪 libraries : SweetAlert2 - iziToast - swiper
 
 ## 🚀 Demo
 Visit on GitHub Pages: [Project Link](https://hosein-amini.github.io/online-shop-project/)
