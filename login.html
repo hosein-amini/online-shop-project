@@ -7,74 +7,71 @@
     <link rel="shortcut icon" href="images/login.png" type="image/x-icon" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="./css/sweetAlert2/sweetAlert2.css" />
     <link rel="stylesheet" href="css/login.css" />
+    <script src="./js/sweetAlert2/sweetAlert2.js" defer></script>
     <script src="js/login.js" type="module"></script>
     <title>Login</title>
   </head>
   <body>
-    <div class="login-page">
-    <a href="./index.html" class="home"><i class="fa fa-home"></i></a>
-
-      <div class="form">
-        <form class="login-form">
-          <input
-            type="text"
-            id="username"
-            class="input"
-            placeholder="username"
-          />
-          <div class="errors">
-            <div class="error userCharactersCountMessage hide">
-              <div></div>
-              <span> Use at least 3 characters without any space</span>
-            </div>
-          </div>
-          <div class="password-wrapper">
+    <div class="container">
+      <div class="login-page">
+        <a href="./index.html" class="home"><i class="fa fa-home"></i></a>
+        <div class="form">
+          <form class="login-form">
             <input
-              type="password"
+              type="text"
+              id="username"
               class="input"
-              id="password"
-              placeholder="password"
-            />
-            <i class="fa fa-eye-slash"></i>
-            <i class="fa fa-eye hide"></i>
-          </div>
-          <div class="errors">
-            <div class="error capitalLettersMessage hide">
-              <div></div>
-              <span> Use at least one capital letter</span>
+              placeholder="username" />
+            <div class="errors">
+              <div class="error userCharactersCountMessage hide">
+                <div></div>
+                <span> Use at least 3 characters without any space</span>
+              </div>
             </div>
-            <div class="error lowercaseLettersMessage hide">
-              <div></div>
-              <span> Use at least one lowercase letter</span>
+            <div class="password-wrapper">
+              <input
+                type="password"
+                class="input"
+                id="password"
+                placeholder="password" />
+              <i class="fa fa-eye-slash"></i>
+              <i class="fa fa-eye hide"></i>
             </div>
-            <div class="error numbersMessage hide">
-              <div></div>
-              <span> Use at least one number</span>
+            <div class="errors">
+              <div class="error capitalLettersMessage hide">
+                <div></div>
+                <span> Use at least one capital letter</span>
+              </div>
+              <div class="error lowercaseLettersMessage hide">
+                <div></div>
+                <span> Use at least one lowercase letter</span>
+              </div>
+              <div class="error numbersMessage hide">
+                <div></div>
+                <span> Use at least one number</span>
+              </div>
+              <div class="error charactersMessage hide">
+                <div></div>
+                <span> Use at least one character such as #?!@$%^&*-</span>
+              </div>
+              <div class="error charactersCountMessage hide">
+                <div></div>
+                <span> Use at least 8 characters</span>
+              </div>
             </div>
-            <div class="error charactersMessage hide">
-              <div></div>
-              <span> Use at least one character such as #?!@$%^&*-</span>
+            <button>login</button>
+            <div>
+              <label for="check">Remember Me</label
+              ><input type="checkbox" id="check" />
             </div>
-            <div class="error charactersCountMessage hide">
-              <div></div>
-              <span> Use at least 8 characters</span>
-            </div>
-          </div>
-
-          <button>login</button>
-
-          <div>
-            <label for="check">Remember Me</label
-            ><input type="checkbox" id="check" />
-          </div>
-
-          <p class="message">
-            Not registered? <a href="#">Create an account</a>
-          </p>
-        </form>
+            <p class="message">
+              Not registered? <a href="#">Create an account</a>
+            </p>
+          </form>
+        </div>
       </div>
     </div>
   </body>

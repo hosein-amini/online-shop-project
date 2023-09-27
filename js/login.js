@@ -92,8 +92,17 @@ const checkBoxHandler = () => {
 const passwordValidator = () => {
   if (regValidPass.test(password.value)) {
     checkBoxHandler();
-    setTimeout(() => history.back(), 1000);
     clearInput();
+    Swal.fire({
+      icon: "success",
+      title: "You have successfully logged in.",
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+      willClose: () => {
+        setTimeout(() => history.back(), 500);
+      },
+    });
   } else {
     showPasswordError();
   }

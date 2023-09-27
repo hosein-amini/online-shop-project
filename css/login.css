@@ -18,17 +18,19 @@
   text-decoration: none;
   user-select: none;
 }
-body {
+
+.container {
   background: linear-gradient(
-    90deg,
-    var(--main-color) 0%,
-    var(--white-color) 100%
+    to top,
+    var(--secondary-color) 0%,
+    var(--black-color) 170%
   );
   font-family: "Roboto", sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
+  width: 100vw;
 }
 
 .home > .fa-home {
@@ -61,7 +63,6 @@ body {
 .login-page {
   max-width: 360px;
   width: 95%;
-  position: relative;
 }
 .form {
   background-color: var(--white-color);
